@@ -41,4 +41,8 @@ src/icons/skin/build-icons/icons/*.png
 
 # CMake build directory
 build/
-dist/
+
+# Windows installer outputs (installer.ps1)
+dist/windows/NSISPlugins/
+dist/windows/qBittorrent/
+dist/windows/qbittorrent_*_setup.exe
