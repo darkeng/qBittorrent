@@ -6,9 +6,21 @@ Section "un.$(remove_files)" ;"un.Remove files"
   Delete "$INSTDIR\qbittorrent.pdb"
   Delete "$INSTDIR\qt.conf"
   Delete "$INSTDIR\uninst.exe"
+  ; Runtime libraries of dynamically linked builds (Qt, OpenSSL, libtorrent, Visual C++)
+  Delete "$INSTDIR\*.dll"
 
   ; Remove directories used
   RMDir /r "$INSTDIR\translations"
+  ; Qt plugin directories of dynamically linked builds
+  RMDir /r "$INSTDIR\generic"
+  RMDir /r "$INSTDIR\iconengines"
+  RMDir /r "$INSTDIR\imageformats"
+  RMDir /r "$INSTDIR\networkinformation"
+  RMDir /r "$INSTDIR\platforms"
+  RMDir /r "$INSTDIR\plugins"
+  RMDir /r "$INSTDIR\sqldrivers"
+  RMDir /r "$INSTDIR\styles"
+  RMDir /r "$INSTDIR\tls"
   RMDir "$INSTDIR"
 SectionEnd
 

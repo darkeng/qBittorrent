@@ -243,6 +243,37 @@ Test-Case "installer.ps1 falla si no encuentra el runtime de Visual C++" {
     Assert-True ($result.Calls -notmatch "makensis") "installer.ps1 genero el instalador sin runtime de Visual C++"
 }
 
+Test-Case "uninstaller.nsh elimina todo lo que installer.ps1 empaqueta" {
+    # Contenido de primer nivel del payload que arma installer.ps1 (windeployqt de Qt 6 + runtime de Visual C++).
+    $payloadFiles = @(
+        "qbittorrent.exe", "qbittorrent.pdb", "Qt6Core.dll", "Qt6Gui.dll", "Qt6Network.dll", "Qt6Sql.dll",
+        "Qt6Svg.dll", "Qt6Widgets.dll", "Qt6Xml.dll", "D3Dcompiler_47.dll", "torrent-rasterbar.dll",
+        "libcrypto-3-x64.dll", "libssl-3-x64.dll", "zlib1.dll", "icuuc78.dll", "msvcp140.dll", "vcruntime140.dll"
+    )
+    $payloadDirs = @(
+        "generic", "iconengines", "imageformats", "networkinformation", "platforms", "sqldrivers", "styles",
+        "tls", "translations"
+    )
+
+    $uninstaller = Get-Content (Join-Path $repoRoot "dist\windows\uninstaller.nsh") -Raw
+    $deletePatterns = [regex]::Matches($uninstaller, '(?m)^\s*Delete\s+"\$INSTDIR\\([^"]+)"') | ForEach-Object { $_.Groups[1].Value }
+    $removedDirs = [regex]::Matches($uninstaller, '(?m)^\s*RMDir\s+/r\s+"\$INSTDIR\\([^"]+)"') | ForEach-Object { $_.Groups[1].Value }
+
+    $leftovers = @()
+    foreach ($file in $payloadFiles) {
+        if (-not ($deletePatterns | Where-Object { $file -like $_ })) {
+            $leftovers += $file
+        }
+    }
+    foreach ($dir in $payloadDirs) {
+        if ($removedDirs -notcontains $dir) {
+            $leftovers += "$dir\"
+        }
+    }
+
+    Assert-True ($leftovers.Count -eq 0) "El desinstalador dejaria: $($leftovers -join ', ')"
+}
+
 foreach ($dir in $script:sandboxes) {
     Remove-Item $dir -Recurse -Force -ErrorAction SilentlyContinue
 }
