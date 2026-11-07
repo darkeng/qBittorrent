@@ -75,8 +75,7 @@ SpeedWidget::SpeedWidget(PropertiesWidget *parent)
     m_periodCombobox->addItem(tr("12 Hours"));
     m_periodCombobox->addItem(tr("24 Hours"));
 
-    connect(m_periodCombobox, qOverload<int>(&QComboBox::currentIndexChanged)
-        , this, &SpeedWidget::onPeriodChange);
+    connect(m_periodCombobox, &QComboBox::currentIndexChanged, this, &SpeedWidget::onPeriodChange);
 
     m_graphsMenu = new QMenu(this);
     m_graphsMenu->addAction(tr("Total Upload"));
@@ -160,14 +159,14 @@ void SpeedWidget::loadSettings()
 {
     Preferences *preferences = Preferences::instance();
 
-    int periodIndex = preferences->getSpeedWidgetPeriod();
+    const int periodIndex = preferences->getSpeedWidgetPeriod();
     m_periodCombobox->setCurrentIndex(periodIndex);
-    onPeriodChange(static_cast<SpeedPlotView::TimePeriod>(periodIndex));
+    onPeriodChange(periodIndex);
 
     for (int id = SpeedPlotView::UP; id < SpeedPlotView::NB_GRAPHS; ++id)
     {
         QAction *action = m_graphsMenuActions.at(id);
-        bool enable = preferences->getSpeedWidgetGraphEnable(id);
+        const bool enable = preferences->getSpeedWidgetGraphEnable(id);
 
         action->setChecked(enable);
         m_plot->setGraphEnable(static_cast<SpeedPlotView::GraphID>(id), enable);

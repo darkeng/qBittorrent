@@ -19,10 +19,6 @@
         <translation>开始 Torrent</translation>
     </message>
     <message>
-        <source>Skip hash check</source>
-        <translation>跳过哈希校验</translation>
-    </message>
-    <message>
         <source>Torrent Management Mode:</source>
         <translation>Torrent 管理模式：</translation>
     </message>
@@ -73,10 +69,6 @@
     <message>
         <source>Download in sequential order</source>
         <translation>按顺序下载</translation>
-    </message>
-    <message>
-        <source>Size:</source>
-        <translation>大小：</translation>
     </message>
     <message>
         <source>Save at</source>
@@ -139,10 +131,6 @@
         <translation>过滤文件...</translation>
     </message>
     <message>
-        <source>Add Torrent</source>
-        <translation>添加种子</translation>
-    </message>
-    <message>
         <source>Use another path for incomplete torrent</source>
         <translation>对不完整的 Torrent 使用另一个路径</translation>
     </message>
@@ -198,6 +186,32 @@
         <source>Limit download rate</source>
         <translation>限制下载速率</translation>
     </message>
+    <message>
+        <source>KiB/s</source>
+        <translation>KiB/s</translation>
+    </message>
+    <message>
+        <source>If set, qBittorrent will assume that all files are present for this torrent and that they all match the hashes in the torrent file. The use case for this mode is if a torrent is created and seeded, or if the user already knows that all the files are complete, this is a way to perform only basic file checks and skip initial hash checks.
+The piece hash will be checked when it is requested for the first time by a peer. If a hash check fails, all files in this torrent will be rechecked.</source>
+        <translation>如果设置，qBittorrent 将假定此种子的所有文件都存在，并且它们都与种子文件中的哈希值匹配。此模式的用例是，如果种子已创建并在做种，或者如果用户已经知道所有文件都已完成，这是一种只执行基本文件检查并跳过初始哈希检查的方法。
+当对等节点首次请求时，将检查文件块哈希。如果哈希检查失败，将重新检查此种子中的所有文件。</translation>
+    </message>
+    <message>
+        <source>Seed mode</source>
+        <translation>种子模式</translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation>下载</translation>
+    </message>
+    <message>
+        <source>%1 free</source>
+        <translation>%1 可用</translation>
+    </message>
+    <message>
+        <source>%1 needed · %2 free</source>
+        <translation>需要 %1 · %2 可用</translation>
+    </message>
 </context>
 <context>
     <name>CategoryFilterModel</name>
@@ -242,11 +256,15 @@
     </message>
     <message>
         <source>Start torrents</source>
-        <translation>启动 torrent</translation>
+        <translation>开始 Torrent</translation>
     </message>
     <message>
         <source>Stop torrents</source>
         <translation>停止 torrent</translation>
+    </message>
+    <message>
+        <source>Force start torrents</source>
+        <translation>强制开始 Torrent</translation>
     </message>
 </context>
 <context>
@@ -294,10 +312,6 @@
     <message>
         <source>Maximum number of upload slots per torrent limit must be greater than 0 or disabled.</source>
         <translation>每个 torrent 上传窗口数上限必须大于 0 或禁用。</translation>
-    </message>
-    <message>
-        <source>Unable to save program preferences, qBittorrent is probably unreachable.</source>
-        <translation>无法保存程序偏好选项，可能是无法连接到 qBttorrent。</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -412,7 +426,7 @@
     </message>
     <message>
         <source>Unable to add peers. Please ensure you are adhering to the IP:port format.</source>
-        <translation>无法添加节点。请确认你的格式符合 IP:端口 格式。</translation>
+        <translation>无法添加对等节点。请确认你的格式符合 IP:端口 格式。</translation>
     </message>
     <message>
         <source>Name cannot be empty</source>
@@ -457,10 +471,6 @@
     <message>
         <source>Reverse proxy setup examples</source>
         <translation>反向代理设置示例</translation>
-    </message>
-    <message>
-        <source>Could not contact qBittorrent</source>
-        <translation>无法联系 qBittorrent</translation>
     </message>
     <message>
         <source>Remember choice</source>
@@ -516,7 +526,7 @@
     </message>
     <message>
         <source>Unable to start torrents.</source>
-        <translation>无法开始 torrents。</translation>
+        <translation>无法开始 Torrent。</translation>
     </message>
     <message>
         <source>Add web seeds</source>
@@ -531,16 +541,12 @@
         <translation>做种时间限制不能为负值</translation>
     </message>
     <message>
-        <source>Peer ToS must be between 0 and 255.</source>
-        <translation type="vanished">Peer ToS 必须在 0 到 255 之间。</translation>
-    </message>
-    <message>
         <source>Share ratio limit must not have a negative value.</source>
         <translation>分享率限制不能为负值</translation>
     </message>
     <message>
         <source>Peer turnover interval must be greater than or equal to 0.</source>
-        <translation>Peer 周转间隔必须大于等于 0</translation>
+        <translation>对等节点周转间隔必须大于等于 0</translation>
     </message>
     <message>
         <source>Unable to parse response.</source>
@@ -552,7 +558,7 @@
     </message>
     <message>
         <source>Peer turnover must be between 0 and 100.</source>
-        <translation>Peer 周转截止时间必须在 0 到 100 之间</translation>
+        <translation>对等节点周转截止时间必须在 0 到 100 之间</translation>
     </message>
     <message>
         <source>Outstanding memory when checking torrents must be greater than 0 and less than 1024.</source>
@@ -564,11 +570,43 @@
     </message>
     <message>
         <source>Peer turnover cutoff must be between 0 and 100.</source>
-        <translation>Peer 周转截止时间必须在 0 到 100 之间。</translation>
+        <translation>对等节点周转截止时间必须在 0 到 100 之间。</translation>
     </message>
     <message>
         <source>Peer DSCP must be between 0 and 255.</source>
-        <translation type="unfinished" />
+        <translation>对等节点 DSCP 必须在 0 到 255 之间。</translation>
+    </message>
+    <message>
+        <source>Unable to add torrents.</source>
+        <translation>无法添加种子文件</translation>
+    </message>
+    <message>
+        <source>Unable to save preferences, qBittorrent is probably unreachable.</source>
+        <translation>无法保存首选项，qBittorrent 可能无法访问。</translation>
+    </message>
+    <message>
+        <source>Error:</source>
+        <translation>错误：</translation>
+    </message>
+    <message>
+        <source>BitTorrent session shutdown timeout must be between -1 and 2147483647.</source>
+        <translation>BitTorrent 会话关闭超时时间必须介于 -1 和 2147483647 之间。</translation>
+    </message>
+    <message>
+        <source>Unable to resume the session.</source>
+        <translation>无法恢复会话。</translation>
+    </message>
+    <message>
+        <source>Unable to force start torrents.</source>
+        <translation>无法强制开始 Torrent。</translation>
+    </message>
+    <message>
+        <source>Invalid path to Python executable. Path contains unnecessary leading and trailing quotes.</source>
+        <translation>Python 可执行文件的路径无效。路径包含多余的前导和尾随引号。</translation>
+    </message>
+    <message>
+        <source>Unable to pause the session.</source>
+        <translation>无法暂停会话。</translation>
     </message>
 </context>
 <context>
@@ -640,14 +678,6 @@
     <message>
         <source>No</source>
         <translation>否</translation>
-    </message>
-    <message>
-        <source>Global Upload Speed Limit</source>
-        <translation>全局上传速度限制</translation>
-    </message>
-    <message>
-        <source>Global Download Speed Limit</source>
-        <translation>全局下载速度限制</translation>
     </message>
     <message>
         <source>Are you sure you want to quit qBittorrent?</source>
@@ -791,7 +821,7 @@
     </message>
     <message>
         <source>Would you like to start all torrents?</source>
-        <translation>你要启动所有 torrent 吗？</translation>
+        <translation>您要开始所有 Torrent 吗？</translation>
     </message>
     <message>
         <source>Start</source>
@@ -799,7 +829,7 @@
     </message>
     <message>
         <source>Manage Cookies...</source>
-        <translation>管理 Cookies...</translation>
+        <translation>管理 Cookie…</translation>
     </message>
     <message>
         <source>Unable to export torrent file</source>
@@ -829,6 +859,54 @@
         <source>Filter feed items...</source>
         <translation>筛选源条目...</translation>
     </message>
+    <message>
+        <source>Info Hash v1</source>
+        <translation>信息哈希值 v1</translation>
+    </message>
+    <message>
+        <source>Invert Selection</source>
+        <translation>反选</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation>全选</translation>
+    </message>
+    <message>
+        <source>Remove torrent and content</source>
+        <translation>删除种子和内容</translation>
+    </message>
+    <message>
+        <source>Remove torrent</source>
+        <translation>删除 torrent</translation>
+    </message>
+    <message>
+        <source>Info Hash v2</source>
+        <translation>信息哈希值 v2</translation>
+    </message>
+    <message>
+        <source>Resume session</source>
+        <translation>恢复会话</translation>
+    </message>
+    <message>
+        <source>[PAUSED]</source>
+        <translation>[已暂停]</translation>
+    </message>
+    <message>
+        <source>Global Speed Limits</source>
+        <translation>全局速度限制</translation>
+    </message>
+    <message>
+        <source>Pause session</source>
+        <translation>暂停会话</translation>
+    </message>
+    <message>
+        <source>Pause Session</source>
+        <translation>暂停会话</translation>
+    </message>
+    <message>
+        <source>Resume Session</source>
+        <translation>恢复会话</translation>
+    </message>
 </context>
 <context>
     <name>OptionsDialog</name>
@@ -851,10 +929,6 @@
     <message>
         <source>BitTorrent</source>
         <translation>BitTorrent</translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation>语言</translation>
     </message>
     <message>
         <source>Email notification upon download completion</source>
@@ -902,15 +976,7 @@
     </message>
     <message>
         <source>Keep incomplete torrents in:</source>
-        <translation>保存未完成的 torrent 到：</translation>
-    </message>
-    <message>
-        <source>Copy .torrent files to:</source>
-        <translation>复制 .torrent 文件到：</translation>
-    </message>
-    <message>
-        <source>Copy .torrent files for finished downloads to:</source>
-        <translation>复制下载完成的 .torrent 文件到：</translation>
+        <translation type="vanished">保存未完成的 torrent 到：</translation>
     </message>
     <message>
         <source>Pre-allocate disk space for all files</source>
@@ -927,10 +993,6 @@
     <message>
         <source>SMTP server:</source>
         <translation>SMTP 服务器：</translation>
-    </message>
-    <message>
-        <source>This server requires a secure connection (SSL)</source>
-        <translation>该服务器需要安全链接（SSL）</translation>
     </message>
     <message>
         <source>Authentication</source>
@@ -1408,7 +1470,7 @@
     </message>
     <message>
         <source>Peer proportional (throttles TCP)</source>
-        <translation>按用户比重 (抑制 TCP)</translation>
+        <translation>按对等节点比重（抑制 TCP）</translation>
     </message>
     <message>
         <source>Fixed slots</source>
@@ -1464,7 +1526,7 @@
     </message>
     <message>
         <source>Resolve peer countries:</source>
-        <translation>解析用户所在国家：</translation>
+        <translation>解析对等节点所在国家/地区：</translation>
     </message>
     <message>
         <source>ban for:</source>
@@ -1492,7 +1554,7 @@
     </message>
     <message>
         <source>Peer turnover threshold percentage:</source>
-        <translation>Peer 进出阈值百分比：</translation>
+        <translation>对等节点进出阈值百分比：</translation>
     </message>
     <message>
         <source>RSS Torrent Auto Downloader</source>
@@ -1524,7 +1586,7 @@
     </message>
     <message>
         <source>Peer turnover disconnect percentage:</source>
-        <translation>Peer 进出断开百分比：</translation>
+        <translation>对等节点进出断开百分比：</translation>
     </message>
     <message>
         <source>Maximum number of articles per feed:</source>
@@ -1536,7 +1598,7 @@
     </message>
     <message>
         <source>Peer turnover disconnect interval:</source>
-        <translation>Peer 进出断开间隔：</translation>
+        <translation>对等节点进出断开间隔：</translation>
     </message>
     <message>
         <source>Optional IP address to bind to:</source>
@@ -1544,7 +1606,7 @@
     </message>
     <message>
         <source>Disallow connection to peers on privileged ports:</source>
-        <translation>禁止连接到特权端口上的 Peer：</translation>
+        <translation>禁止连接到特权端口上的 对等节点：</translation>
     </message>
     <message>
         <source>Enable auto downloading of RSS torrents</source>
@@ -1560,7 +1622,7 @@
     </message>
     <message>
         <source>Peer connection protocol:</source>
-        <translation>Peer 连接协议：</translation>
+        <translation>对等节点连接协议：</translation>
     </message>
     <message>
         <source>Torrent content layout:</source>
@@ -1577,10 +1639,6 @@
     <message>
         <source>Don't create subfolder</source>
         <translation>不创建子文件夹</translation>
-    </message>
-    <message>
-        <source>Type of service (ToS) for connections to peers</source>
-        <translation type="vanished">与 peers 连接的服务类型（ToS）</translation>
     </message>
     <message>
         <source>Outgoing connections per second:</source>
@@ -1636,7 +1694,7 @@
     </message>
     <message>
         <source>Maximum outstanding requests to a single peer:</source>
-        <translation>单一 peer 的最大未完成请求：</translation>
+        <translation>单一对等节点的最大未完成请求：</translation>
     </message>
     <message>
         <source>Max active checking torrents:</source>
@@ -1823,10 +1881,6 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
         <translation>套接字接收缓存大小 [0: 系统默认值]：</translation>
     </message>
     <message>
-        <source>Use Subcategories</source>
-        <translation type="vanished">启用子分类：</translation>
-    </message>
-    <message>
         <source>Add to top of queue</source>
         <translation>添加到队列顶部</translation>
     </message>
@@ -1872,7 +1926,7 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     </message>
     <message>
         <source>If &amp;quot;mixed mode&amp;quot; is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers.</source>
-        <translation>如启用 “混合模式”，则 I2P Torrent 也被允许从 Tracker 之外的来源获得 peers，并连接到正常的 IP 地址，这样的结果是不提供任何的匿名性。对于对 I2P 匿名性不感兴趣，但让仍希望能连接到 I2P peer 的用户来说，此模式会有用处。</translation>
+        <translation>如启用 “混合模式”，则 I2P Torrent 也被允许从 Tracker 之外的来源获得对等节点，并连接到正常的 IP 地址，这样的结果不提供任何的匿名性。对 I2P 匿名性不在意，但让仍希望能连接到 I2P 对等节点的用户来说，此模式会有用处。</translation>
     </message>
     <message>
         <source>DHT bootstrap nodes:</source>
@@ -1971,10 +2025,6 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
         <translation>I2P 传入长度：</translation>
     </message>
     <message>
-        <source>It appends the text to the window title to help distinguish qBittorent instances</source>
-        <translation>它将文件附加到窗口标题来区分不同的 qBittorrent 实例</translation>
-    </message>
-    <message>
         <source>The WebUI username must be at least 3 characters long.</source>
         <translation>WebUI 用户名长度至少为3个字符</translation>
     </message>
@@ -1989,10 +2039,6 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     <message>
         <source>Color scheme:</source>
         <translation>配色方案：</translation>
-    </message>
-    <message>
-        <source>Show external IP in status bar</source>
-        <translation>在状态栏展示外部 IP</translation>
     </message>
     <message>
         <source>Fetched trackers</source>
@@ -2031,10 +2077,6 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
         <translation>网址：</translation>
     </message>
     <message>
-        <source>Transfer list</source>
-        <translation>传输列表</translation>
-    </message>
-    <message>
         <source>The announce port must be between 0 and 65535.</source>
         <translation>公告端口必须为 0 到 65535 之间。</translation>
     </message>
@@ -2052,7 +2094,7 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     </message>
     <message>
         <source>Start / stop torrent</source>
-        <translation>开始 / 停止 torrent</translation>
+        <translation>开始/停止 Torrent</translation>
     </message>
     <message>
         <source>Send test email</source>
@@ -2064,7 +2106,7 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     </message>
     <message>
         <source>Enable cookie Secure flag (requires HTTPS or localhost connection)</source>
-        <translation>启用 cookie 安全标志（需要 HTTPS或本地连接）</translation>
+        <translation>启用 Cookie 安全标志（需要 HTTPS 或本地主机连接）</translation>
     </message>
     <message>
         <source>Action on double-click</source>
@@ -2081,10 +2123,6 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     <message>
         <source>Run on torrent finished:</source>
         <translation>torrent 完成时运行：</translation>
-    </message>
-    <message>
-        <source>Attempted to send email. Check your inbox to confirm success</source>
-        <translation>已尝试发送邮件。检查你的收件箱确认是否发送成功</translation>
     </message>
     <message>
         <source>Automatically append trackers from URL to new downloads:</source>
@@ -2163,10 +2201,6 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
         <translation>日志文件</translation>
     </message>
     <message>
-        <source>Enable optimized table rendering (experimental)</source>
-        <translation>启用优化的表格渲染（实验性）</translation>
-    </message>
-    <message>
         <source>Note: The password is saved unencrypted</source>
         <translation>注意：密码以非加密形式保存</translation>
     </message>
@@ -2224,6 +2258,278 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     </message>
     <message>
         <source>Differentiated Services Code Point (DSCP) for connections to peers</source>
+        <translation>与对等节点连接的区分服务代码点 (DSCP)</translation>
+    </message>
+    <message>
+        <source>no encryption used when sending emails</source>
+        <translation>发送电子邮件时不使用加密</translation>
+    </message>
+    <message>
+        <source>SMTPS</source>
+        <translation>SMTPS</translation>
+    </message>
+    <message>
+        <source>(alternative choice if supported)</source>
+        <translation>(alternative choice if supported)</translation>
+    </message>
+    <message>
+        <source>use SMTPS encryption when sending emails</source>
+        <translation>发送电子邮件时使用 SMTPS 加密</translation>
+    </message>
+    <message>
+        <source>Compact</source>
+        <translation>紧凑</translation>
+    </message>
+    <message>
+        <source>Display density:</source>
+        <translation>显示密度：</translation>
+    </message>
+    <message>
+        <source>SMTP encryption:</source>
+        <translation>SMTP 加密：</translation>
+    </message>
+    <message>
+        <source>Default port</source>
+        <translation>默认端口</translation>
+    </message>
+    <message>
+        <source>STARTTLS</source>
+        <translation>STARTTLS</translation>
+    </message>
+    <message>
+        <source>Enable optimized table rendering</source>
+        <translation>启用优化的表格渲染</translation>
+    </message>
+    <message>
+        <source>Select the encryption type used when sending SMTP emails</source>
+        <translation>选择发送 SMTP 电子邮件时使用的加密类型</translation>
+    </message>
+    <message>
+        <source>It appends the text to the window title to help distinguish qBittorrent instances</source>
+        <translation>它将文本附加到窗口标题来区分不同的 qBittorrent 实例</translation>
+    </message>
+    <message>
+        <source>(last choice if no other option)</source>
+        <translation>(last choice if no other option)</translation>
+    </message>
+    <message>
+        <source>Date format:</source>
+        <translation>日期格式：</translation>
+    </message>
+    <message>
+        <source>Browser default</source>
+        <translation>浏览器默认</translation>
+    </message>
+    <message>
+        <source>Resolve peer host names:</source>
+        <translation>解析用户主机名：</translation>
+    </message>
+    <message>
+        <source>Pread/pwrite</source>
+        <translation>Pread/pwrite</translation>
+    </message>
+    <message>
+        <source>use STARTTLS encryption when sending emails</source>
+        <translation>发送电子邮件时使用 STARTTLS 加密</translation>
+    </message>
+    <message>
+        <source>The WebUI username must not contain a colon.</source>
+        <translation>WebUI 用户名不得包含冒号。</translation>
+    </message>
+    <message>
+        <source>Localization</source>
+        <translation>本地化</translation>
+    </message>
+    <message>
+        <source>(best choice if supported)</source>
+        <translation>(best choice if supported)</translation>
+    </message>
+    <message>
+        <source>Provide the sending email address.</source>
+        <translation>提供发送电子邮件地址。</translation>
+    </message>
+    <message>
+        <source>Enable I2P Peer Exchange (I2P PeX) to find more peers (requires restart)</source>
+        <translation>启用 I2P 对等节点交换（I2P PeX）以查找更多对等节点（需要重启）</translation>
+    </message>
+    <message>
+        <source>Status bar</source>
+        <translation>状态栏</translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation>通知</translation>
+    </message>
+    <message>
+        <source>Could not contact qBittorrent.</source>
+        <translation>无法联系 qBittorrent。</translation>
+    </message>
+    <message>
+        <source>Separate multiple emails with a semicolon.</source>
+        <translation>用分号分隔多个电子邮件地址。</translation>
+    </message>
+    <message>
+        <source>Allow multiple connections from the same Peer ID:</source>
+        <translation>允许来自同一对等节点 ID 的多个连接：</translation>
+    </message>
+    <message>
+        <source>Attempted to send test email.&lt;br&gt;Check your inbox to confirm success.&lt;br&gt;Check the Execution Log for errors.</source>
+        <translation type="vanished">已尝试发送测试邮件。&lt;br&gt;请检查您的收件箱以确认是否成功。&lt;br&gt;请检查执行日志是否有错误。</translation>
+    </message>
+    <message>
+        <source>Sessions count limit:</source>
+        <translation>会话计数限制：</translation>
+    </message>
+    <message>
+        <source>I2P outbound length variance:</source>
+        <translation>I2P 传出长度偏差：</translation>
+    </message>
+    <message>
+        <source>Transfer List</source>
+        <translation>传输列表</translation>
+    </message>
+    <message>
+        <source>Start BitTorrent session in paused state:</source>
+        <translation>以暂停状态启动 BitTorrent 会话：</translation>
+    </message>
+    <message>
+        <source>Store backup in:</source>
+        <translation>将备份存储在：</translation>
+    </message>
+    <message>
+        <source>Save search tabs</source>
+        <translation>保存搜索标签页</translation>
+    </message>
+    <message>
+        <source>Store backup .torrent file</source>
+        <translation>存储备份 .torrent 文件</translation>
+    </message>
+    <message>
+        <source>Note: b@y.com &amp; c@z.com will both see each other's email addresses, whereas a@x.com will not see them nor be seen.</source>
+        <translation>注意：b@y.com 和 c@z.com 都能看到对方的电子邮件地址，而 a@x.com 既看不到对方的电子邮件地址，对方也看不到它的电子邮件地址。</translation>
+    </message>
+    <message>
+        <source>Display torrent content and some options</source>
+        <translation>显示 torrent 内容及选项</translation>
+    </message>
+    <message>
+        <source>Separate multiple email addresses within each email with a comma.</source>
+        <translation>在每封邮件中，用逗号分隔多个电子邮件地址。</translation>
+    </message>
+    <message>
+        <source>Provide the recipient email address or addresses.</source>
+        <translation>提供收件人电子邮件地址。</translation>
+    </message>
+    <message>
+        <source>Show external IP</source>
+        <translation>显示外部 IP</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>搜索</translation>
+    </message>
+    <message>
+        <source>BitTorrent session shutdown timeout [-1: unlimited]:</source>
+        <translation>BitTorrent 会话关闭超时时间 [-1：无限制]：</translation>
+    </message>
+    <message>
+        <source>Example:</source>
+        <translation>例如：</translation>
+    </message>
+    <message>
+        <source>Provide the SMTP server address for sending email notifications.</source>
+        <translation>提供用于发送电子邮件通知的 SMTP 服务器地址。</translation>
+    </message>
+    <message>
+        <source>smtp.example.com:465 - connect to server smtp.example.com on port 465</source>
+        <translation>smtp.example.com:465 - 连接到端口 465 上的 smtp.example.com 服务器</translation>
+    </message>
+    <message>
+        <source>Maximum outstanding block requests from a peer:</source>
+        <translation>来自一个对等节点的最大未完成块请求：</translation>
+    </message>
+    <message>
+        <source>Also save search results</source>
+        <translation>同时保存搜索结果</translation>
+    </message>
+    <message>
+        <source>I2P inbound length variance:</source>
+        <translation>I2P 传入长度偏差：</translation>
+    </message>
+    <message>
+        <source>To manually specify the server port, add a colon and then the port number to the end.</source>
+        <translation>要手动指定服务器端口，请添加英文冒号，然后在末尾添加端口号。</translation>
+    </message>
+    <message>
+        <source>Remove backup when removing torrent</source>
+        <translation>移除种子时删除备份</translation>
+    </message>
+    <message>
+        <source>When torrent finished move backup to:</source>
+        <translation>种子完成后，将备份移动到：</translation>
+    </message>
+    <message>
+        <source>STUN server for WebTorrent NAT traversal:</source>
+        <translation>用于 WebTorrent NAT 穿透的 STUN 服务器：</translation>
+    </message>
+    <message>
+        <source>The server address can be entered either as a DNS name or an IP address (DNS name recommended).</source>
+        <translation>服务器地址既可以输入 DNS 名称，也可以输入 IP 地址（建议使用 DNS 名称）。</translation>
+    </message>
+    <message>
+        <source>Allow outgoing connections when seeding:</source>
+        <translation>做种时允许传出连接：</translation>
+    </message>
+    <message>
+        <source>a@x.com;b@y.com,c@z.com - send two emails: the first to just a@x.com, the second to both b@y.com and c@z.com</source>
+        <translation>a@x.com;b@y.com,c@z.com - 发送两封邮件：第一封仅发送给 a@x.com，第二封同时发送给 b@y.com 和 c@z.com</translation>
+    </message>
+    <message>
+        <source>Attempted to send test email.\nCheck your inbox to confirm success.\nCheck the Execution Log for errors.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>All the above</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Confirm removal of all tags:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Also delete .torrent files whose addition was cancelled</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Also when addition is cancelled</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use another path for incomplete torrents:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Confirm removal of tracker from all torrents:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Any of the above</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Blacklist filtered file names from being downloaded from torrent(s).
+Files matching any of the filters in this list will have their priority automatically set to &amp;quot;Do not download&amp;quot;.
+
+Use newlines to separate multiple entries. Can use wildcards as outlined below.
+*: matches zero or more of any characters.
+?: matches any single character.
+[...]: sets of characters can be represented in square brackets.
+
+Examples
+*.exe: filter '.exe' file extension.
+readme.txt: filter exact file name.
+?.txt: filter 'a.txt', 'b.txt' but not 'aa.txt'.
+readme[0-9].txt: filter 'readme1.txt', 'readme2.txt' but not 'readme10.txt'.</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -2299,15 +2605,19 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     </message>
     <message>
         <source>Add peers...</source>
-        <translation>添加 peers 用户...</translation>
+        <translation>添加对等节点...</translation>
     </message>
     <message>
         <source>Peer ID Client</source>
-        <translation>Peer ID 客户端</translation>
+        <translation>对等节点 ID 客户端</translation>
     </message>
     <message>
         <source>IP/Address</source>
         <translation>IP/地址</translation>
+    </message>
+    <message>
+        <source>Contribution</source>
+        <translation>贡献</translation>
     </message>
 </context>
 <context>
@@ -2634,6 +2944,22 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
         <source>Private:</source>
         <translation>私密：</translation>
     </message>
+    <message>
+        <source>Availability:</source>
+        <translation>可用性：</translation>
+    </message>
+    <message>
+        <source>Copy path</source>
+        <translation>复制路径</translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation>下载</translation>
+    </message>
+    <message>
+        <source>Copy download URL</source>
+        <translation>复制下载 URL</translation>
+    </message>
 </context>
 <context>
     <name>ScanFoldersModel</name>
@@ -2664,7 +2990,7 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
 </context>
 <context>
     <name>SpeedLimitDialog</name>
-    </context>
+</context>
 <context>
     <name>StatsDialog</name>
     <message>
@@ -2730,6 +3056,22 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     <message>
         <source>Total queued size:</source>
         <translation>总队列大小：</translation>
+    </message>
+    <message>
+        <source>Tracker statistics</source>
+        <translation>Tracker 统计数据</translation>
+    </message>
+    <message>
+        <source>Queued tracker announces:</source>
+        <translation>Queued tracker announces:</translation>
+    </message>
+    <message>
+        <source>Request latency:</source>
+        <translation>请求延迟：</translation>
+    </message>
+    <message>
+        <source>The time it takes from receiving a request from a peer until we're sending the response back on the socket</source>
+        <translation>从接收到对等节点发来的请求到通过套接字发送回响应所花费的时间</translation>
     </message>
 </context>
 <context>
@@ -2860,16 +3202,20 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     </message>
     <message>
         <source>Start torrents</source>
-        <translation>启动 torrent</translation>
+        <translation>开始 Torrent</translation>
     </message>
     <message>
         <source>Stop torrents</source>
         <translation>停止 torrent</translation>
     </message>
+    <message>
+        <source>Force start torrents</source>
+        <translation>强制开始 Torrent</translation>
+    </message>
 </context>
 <context>
     <name>TorrentContentModel</name>
-    </context>
+</context>
 <context>
     <name>TransferListModel</name>
     <message>
@@ -2960,16 +3306,6 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
         <translation>已上传</translation>
     </message>
     <message>
-        <source>Session Download</source>
-        <comment>Amount of data downloaded since program open (e.g. in MB)</comment>
-        <translation>本次会话下载</translation>
-    </message>
-    <message>
-        <source>Session Upload</source>
-        <comment>Amount of data uploaded since program open (e.g. in MB)</comment>
-        <translation>本次会话上传</translation>
-    </message>
-    <message>
         <source>Remaining</source>
         <comment>Amount of data left to download (e.g. in MB)</comment>
         <translation>剩余</translation>
@@ -3044,6 +3380,18 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     <message>
         <source>Status Icon</source>
         <translation>状态图标</translation>
+    </message>
+    <message>
+        <source>Session Uploaded</source>
+        <translation>会话已上传</translation>
+    </message>
+    <message>
+        <source>Session Downloaded</source>
+        <translation>会话已下载</translation>
+    </message>
+    <message>
+        <source>Created On</source>
+        <translation>创建于</translation>
     </message>
 </context>
 <context>
@@ -3511,6 +3859,10 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
         <source>Content Path</source>
         <translation>内容路径</translation>
     </message>
+    <message>
+        <source>Remove all tags from selected torrents?</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>UpDownRatioDialog</name>
@@ -3566,10 +3918,26 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
         <source>Action when the limit is reached</source>
         <translation>达到限制时采取的操作</translation>
     </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Match any limit</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Default (Match any limit)</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Match all the limits</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>about</name>
-    </context>
+</context>
 <context>
     <name>confirmDeletionDlg</name>
     <message>
@@ -3662,6 +4030,10 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     <message>
         <source>%1y %2d</source>
         <translation>%1 年 %2 天</translation>
+    </message>
+    <message>
+        <source>%1s</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -3875,7 +4247,7 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     </message>
     <message>
         <source>Url</source>
-        <translation>Url</translation>
+        <translation type="vanished">Url</translation>
     </message>
     <message>
         <source>Enabled</source>
@@ -3892,6 +4264,10 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     <message>
         <source>No</source>
         <translation>否</translation>
+    </message>
+    <message>
+        <source>URL</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -3949,11 +4325,15 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     </message>
     <message>
         <source>Start torrents</source>
-        <translation>启动 torrent</translation>
+        <translation>开始 Torrent</translation>
     </message>
     <message>
         <source>Stop torrents</source>
         <translation>停止 torrent</translation>
+    </message>
+    <message>
+        <source>Force start torrents</source>
+        <translation>强制开始 Torrent</translation>
     </message>
 </context>
 <context>
@@ -4035,7 +4415,7 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     </message>
     <message>
         <source>The free IP to Country Lite database by DB-IP is used for resolving the countries of peers. The database is licensed under the Creative Commons Attribution 4.0 International License</source>
-        <translation>由 DB-IP 提供的免费 IP to Country Lite 数据库，用于解析节点所在的国家。该数据库已根据知识共享署名 4.0 国际许可协议获得许可</translation>
+        <translation>由 DB-IP 提供的免费 IP to Country Lite 数据库，用于解析对等节点所在的国家/地区。该数据库已根据知识共享署名 4.0 国际许可协议获得许可</translation>
     </message>
     <message>
         <source>Authors</source>
@@ -4105,7 +4485,7 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     </message>
     <message>
         <source>Close tab</source>
-        <translation>关闭标签</translation>
+        <translation>关闭标签页</translation>
     </message>
     <message>
         <source>Searching...</source>
@@ -4117,11 +4497,43 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     </message>
     <message>
         <source>Close all tabs</source>
-        <translation>关闭所有标签</translation>
+        <translation>关闭所有标签页</translation>
     </message>
     <message>
         <source>Refresh tab</source>
         <translation>刷新标签页</translation>
+    </message>
+    <message>
+        <source>Stop search</source>
+        <translation>停止搜索</translation>
+    </message>
+    <message>
+        <source>Use as search text</source>
+        <translation>用作搜索关键词</translation>
+    </message>
+    <message>
+        <source>Open download window</source>
+        <translation>打开下载窗口</translation>
+    </message>
+    <message>
+        <source>Blocked opening search result description page URL. Only http:// and https:// links can be opened.</source>
+        <translation>阻止了打开搜索结果描述页面 URL。只能打开 http:// 和 https:// 链接。</translation>
+    </message>
+    <message>
+        <source>Add %1 torrents</source>
+        <translation>添加 %1 个种子</translation>
+    </message>
+    <message>
+        <source>Search results are no longer available</source>
+        <translation>搜索结果不再可用</translation>
+    </message>
+    <message>
+        <source>Open separate download windows</source>
+        <translation>打开单独的下载窗口</translation>
+    </message>
+    <message>
+        <source>Open shared download window</source>
+        <translation>打开共享下载窗口</translation>
     </message>
 </context>
 <context>
@@ -4256,6 +4668,22 @@ Use ';' to split multiple entries. Can use wildcard '*'.</source>
     <message>
         <source>Author: </source>
         <translation>作者：</translation>
+    </message>
+    <message>
+        <source>Blocked opening RSS article URL. Only http:// and https:// links can be opened.</source>
+        <translation>阻止了打开 RSS 文章 URL。只能打开 http:// 和 https:// 链接。</translation>
+    </message>
+    <message>
+        <source>Add %1 torrents</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Open separate download windows</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Open shared download window</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -4514,6 +4942,26 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
         <source>Add Stopped:</source>
         <translation>添加已停止的：</translation>
     </message>
+    <message>
+        <source>Rule cloning</source>
+        <translation>规则复制</translation>
+    </message>
+    <message>
+        <source>Clear downloaded episodes confirmation</source>
+        <translation>清除已下载剧集确认</translation>
+    </message>
+    <message>
+        <source>Clone rule...</source>
+        <translation>复制规则...</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation>导出</translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation>导入</translation>
+    </message>
 </context>
 <context>
     <name>TrackerFiltersList</name>
@@ -4531,7 +4979,7 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
     </message>
     <message>
         <source>Start torrents</source>
-        <translation>启动 torrent</translation>
+        <translation>开始 Torrent</translation>
     </message>
     <message>
         <source>Remove tracker</source>
@@ -4552,6 +5000,10 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
     <message>
         <source>Other error</source>
         <translation>其他错误</translation>
+    </message>
+    <message>
+        <source>Force start torrents</source>
+        <translation>强制开始 Torrent</translation>
     </message>
 </context>
 <context>
@@ -4761,6 +5213,14 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
         <source>Use another path for incomplete torrents:</source>
         <translation>对不完整的 Torrent 使用另一个路径：</translation>
     </message>
+    <message>
+        <source>Category does not exist</source>
+        <translation>分类不存在</translation>
+    </message>
+    <message>
+        <source>Torrent share limits</source>
+        <translation>Torrent 分享限制</translation>
+    </message>
 </context>
 <context>
     <name>CookiesDialog</name>
@@ -4770,7 +5230,7 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
     </message>
     <message>
         <source>Manage Cookies</source>
-        <translation>管理  </translation>
+        <translation>管理 Cookie</translation>
     </message>
     <message>
         <source>Add Cookie</source>
@@ -4823,7 +5283,7 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
     <name>SearchWidget</name>
     <message>
         <source>Close tab</source>
-        <translation>关闭标签</translation>
+        <translation>关闭标签页</translation>
     </message>
 </context>
 <context>
@@ -4880,11 +5340,6 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
         <translation>无法创建 Torrent。</translation>
     </message>
     <message>
-        <source>Private
-                torrent (Won't distribute on DHT network)</source>
-        <translation>私有 torrent 文件（不会在 DHT 网络上分发）</translation>
-    </message>
-    <message>
         <source>Unable to export torrent file</source>
         <translation>无法导出 torrent 文件</translation>
     </message>
@@ -4933,11 +5388,6 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
         <translation>状态</translation>
     </message>
     <message>
-        <source>Align to piece boundary for files larger
-                than:</source>
-        <translation>大于下列数值的文件启用文件块边界对齐：</translation>
-    </message>
-    <message>
         <source>Select file/folder to share:</source>
         <translation>选择要分享的文件/文件夹：</translation>
     </message>
@@ -4960,11 +5410,6 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
     <message>
         <source>Unable to load torrent creation tasks</source>
         <translation>无法加载 Torrent 创建任务</translation>
-    </message>
-    <message>
-        <source>Optimize
-                    alignment</source>
-        <translation>对齐优化</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -4997,12 +5442,6 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
     <message>
         <source>Web Seeds</source>
         <translation>Web Seeds</translation>
-    </message>
-    <message>
-        <source>Start
-                seeding
-                immediately</source>
-        <translation>立即开始做种</translation>
     </message>
     <message>
         <source>Format</source>
@@ -5052,13 +5491,45 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
         <source>Export Torrent</source>
         <translation>导出 Torrent</translation>
     </message>
+    <message>
+        <source>Yes</source>
+        <translation>是</translation>
+    </message>
+    <message>
+        <source>Ignore dotfiles</source>
+        <translation>忽略点文件</translation>
+    </message>
+    <message>
+        <source>Align to piece boundary for files larger than:</source>
+        <translation>当文件大于指定大小时对齐文件块边界：</translation>
+    </message>
+    <message>
+        <source>Private torrent (Won't distribute on DHT network)</source>
+        <translation>私有 torrent  (不会在 DHT 网络上分发)</translation>
+    </message>
+    <message>
+        <source>Ignore Dotfiles</source>
+        <translation>忽略点文件</translation>
+    </message>
+    <message>
+        <source>Start seeding immediately</source>
+        <translation>完成后开始做种</translation>
+    </message>
+    <message>
+        <source>Optimize alignment</source>
+        <translation>优化对齐</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>否</translation>
+    </message>
+    <message>
+        <source>If checked, filenames starting with a period punctuation mark `.` will not be added to the created torrent.</source>
+        <translation>如果勾选此项，以句点 `.` 开头的文件名将不会被添加到创建的 Torrent 中。</translation>
+    </message>
 </context>
 <context>
     <name>DownloadFromURLDialog</name>
-    <message>
-        <source>Download</source>
-        <translation>下载</translation>
-    </message>
     <message>
         <source>Magnet link</source>
         <translation>磁力链接</translation>
@@ -5078,6 +5549,26 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
     <message>
         <source>Add Torrent Links</source>
         <translation>添加 Torrent 链接</translation>
+    </message>
+    <message>
+        <source>Add %1 torrents</source>
+        <translation>添加 %1 个种子</translation>
+    </message>
+    <message>
+        <source>Open separate dialog for each torrent</source>
+        <translation>为每个种子打开单独的对话框</translation>
+    </message>
+    <message>
+        <source>Add Torrents</source>
+        <translation>添加种子</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation>继续</translation>
+    </message>
+    <message>
+        <source>All torrents will use a single options dialog. Check below to configure each one separately.</source>
+        <translation>所有种子都将使用同一个选项对话框。如需单独配置各项设置，请选中对应选项。</translation>
     </message>
 </context>
 <context>
@@ -5101,6 +5592,46 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
     <message>
         <source>KiB/s</source>
         <translation>KiB/s</translation>
+    </message>
+    <message>
+        <source>Upload speed</source>
+        <translation>上传速度</translation>
+    </message>
+    <message>
+        <source>Download speed</source>
+        <translation>下载速度</translation>
+    </message>
+    <message>
+        <source>Speed limits</source>
+        <translation>速度限制</translation>
+    </message>
+    <message>
+        <source>Alternative download speed</source>
+        <translation>备用下载速度</translation>
+    </message>
+    <message>
+        <source>Alternative upload speed</source>
+        <translation>备用上传速度</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>确定</translation>
+    </message>
+    <message>
+        <source>Upload:</source>
+        <translation>上传：</translation>
+    </message>
+    <message>
+        <source>Alternative speed limits</source>
+        <translation>备用速率限制</translation>
+    </message>
+    <message>
+        <source>Download:</source>
+        <translation>下载：</translation>
+    </message>
+    <message>
+        <source>Failed to set speed limits</source>
+        <translation>无法设置速度限制</translation>
     </message>
 </context>
 <context>
@@ -5127,6 +5658,131 @@ Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also 
     <message>
         <source>Rotate this API key? The current key will immediately stop working and a new key will be generated.</source>
         <translation>重置该 API key 吗？当前 key 会立即停止工作，会生成新 key。</translation>
+    </message>
+</context>
+<context>
+    <name>RSSCloneRule</name>
+    <message>
+        <source>Clone</source>
+        <translation>克隆</translation>
+    </message>
+    <message>
+        <source>Alert</source>
+        <translation>警报</translation>
+    </message>
+    <message>
+        <source>The cloned rule will be set as disabled and the downloaded episodes history will be cleared.</source>
+        <translation>复制的规则将被设置为禁用，下载的剧集历史记录将被清除。</translation>
+    </message>
+    <message>
+        <source>The rule name is unchanged. You must type a new rule name for the clone.</source>
+        <translation>名称规则未更改。必需为克隆规则输入一个新的规则名称。</translation>
+    </message>
+    <message>
+        <source>Please type the name for the clone of the download rule.</source>
+        <translation>请输入复制后的下载规则的名称。</translation>
+    </message>
+    <message>
+        <source>The rule name cannot be empty.</source>
+        <translation>规则名不能为空。</translation>
+    </message>
+    <message>
+        <source>Unable to clone the selected rule.</source>
+        <translation>无法克隆选中的规则。</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+</context>
+<context>
+    <name>TorrentShareLimitsWidget</name>
+    <message>
+        <source>min</source>
+        <translation>分钟</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>默认</translation>
+    </message>
+    <message>
+        <source>Enable super seeding for torrent</source>
+        <translation>为 torrent 启用超级做种</translation>
+    </message>
+    <message>
+        <source>Inactive seeding time:</source>
+        <translation>不活跃的做种时间：</translation>
+    </message>
+    <message>
+        <source>Match all the limits</source>
+        <translation>符合所有限制</translation>
+    </message>
+    <message>
+        <source>Ratio:</source>
+        <translation>比率</translation>
+    </message>
+    <message>
+        <source>Match any limit</source>
+        <translation>符合任何限制</translation>
+    </message>
+    <message>
+        <source>Remove torrent and its content</source>
+        <translation>删除种子及文件</translation>
+    </message>
+    <message>
+        <source>Share limit values cannot be empty or invalid.</source>
+        <translation>共享限值不能为空或无效。</translation>
+    </message>
+    <message>
+        <source>Action when the limit is reached:</source>
+        <translation>达到限制时采取的操作：</translation>
+    </message>
+    <message>
+        <source>From category (%1)</source>
+        <translation>来自分类 (%1)</translation>
+    </message>
+    <message>
+        <source>Set to</source>
+        <translation>已设为</translation>
+    </message>
+    <message>
+        <source>From category</source>
+        <translation>来自分类</translation>
+    </message>
+    <message>
+        <source>Default (%1)</source>
+        <translation>默认 (%1)</translation>
+    </message>
+    <message>
+        <source>Seeding time:</source>
+        <translation>做种时间：</translation>
+    </message>
+    <message>
+        <source>Unlimited</source>
+        <translation>无限制的</translation>
+    </message>
+    <message>
+        <source>Stop torrent</source>
+        <translation>停止 torrent</translation>
+    </message>
+    <message>
+        <source>Mode:</source>
+        <translation>模式：</translation>
+    </message>
+    <message>
+        <source>Remove torrent</source>
+        <translation>删除 torrent</translation>
+    </message>
+</context>
+<context>
+    <name>TorrentContent</name>
+    <message>
+        <source>Unavailable until all selected files are downloaded</source>
+        <translation>在所有选定文件下载完成之前不可用</translation>
+    </message>
+    <message>
+        <source>Not available for folders</source>
+        <translation>不适用于文件夹</translation>
     </message>
 </context>
 </TS>

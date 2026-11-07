@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2018-2024  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2018-2026  Vladimir Golovnev <glassez@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -28,26 +28,35 @@
 
 #pragma once
 
+#include <variant>
+
 #include <QtContainerFwd>
 #include <QObject>
 #include <QString>
 #include <QVariant>
 
 #include "base/applicationcomponent.h"
+#include "base/http/request.h"
+#include "base/path.h"
 #include "apistatus.h"
 
-using DataMap = QHash<QString, QByteArray>;
+using DataList = QList<Http::UploadedFile>;
 using StringMap = QHash<QString, QString>;
 
-struct APIResult
+struct RegularAPIResult
 {
-    QVariant data;
-    QString mimeType;
-    QString filename;
+    QVariant data {};
+    QString mimeType {};
+    QString filename {};
     APIStatus status = APIStatus::Ok;
-
-    void clear();
 };
+
+struct StreamFileAPIResult
+{
+    Path filePath;
+};
+
+using APIResult = std::variant<RegularAPIResult, StreamFileAPIResult>;
 
 class APIController : public ApplicationComponent<QObject>
 {
@@ -57,22 +66,23 @@ class APIController : public ApplicationComponent<QObject>
 public:
     explicit APIController(IApplication *app, QObject *parent = nullptr);
 
-    APIResult run(const QString &action, const StringMap &params, const DataMap &data = {});
+    APIResult run(const QString &action, const StringMap &params, const DataList &data = {});
 
 protected:
     const StringMap &params() const;
-    const DataMap &data() const;
+    const DataList &data() const;
     void requireParams(const QList<QString> &requiredParams) const;
 
     void setResult(const QString &result);
     void setResult(const QJsonArray &result);
     void setResult(const QJsonObject &result);
     void setResult(const QByteArray &result, const QString &mimeType = {}, const QString &filename = {});
+    void setResult(const Path &filePath);
 
     void setStatus(APIStatus status);
 
 private:
     StringMap m_params;
-    DataMap m_data;
+    DataList m_data;
     APIResult m_result;
 };

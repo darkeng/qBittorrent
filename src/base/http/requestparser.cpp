@@ -243,8 +243,8 @@ bool RequestParser::parseRequestLine(const QByteArrayView line)
             const QByteArrayView nameComponent = param.first(eqCharPos);
             const QByteArrayView valueComponent = param.sliced(eqCharPos + 1);
             const QString paramName = QString::fromUtf8(
-                QByteArray::fromPercentEncoding(asQByteArray(nameComponent)).replace('+', ' '));
-            const QByteArray paramValue = QByteArray::fromPercentEncoding(asQByteArray(valueComponent)).replace('+', ' ');
+                QByteArray::fromPercentEncoding(asQByteArray(nameComponent).replace('+', ' ')));
+            const QByteArray paramValue = QByteArray::fromPercentEncoding(asQByteArray(valueComponent).replace('+', ' '));
 
             m_request.query[paramName] = paramValue;
         }
@@ -274,7 +274,7 @@ bool RequestParser::parsePostMessage(const QByteArrayView data)
     if (contentTypeLower.startsWith(CONTENT_TYPE_FORM_ENCODED))
     {
         // [URL Standard] 5.1 application/x-www-form-urlencoded parsing
-        const QByteArray processedData = data.toByteArray().replace('+', ' ');
+        const QByteArray processedData = Utils::ByteArray::asQByteArray(data).replace('+', ' ');
 
         const QList<QStringPair> pairs = QUrlQuery(QString::fromUtf8(processedData)).queryItems(QUrl::FullyDecoded);
         for (const QStringPair &pair : pairs)

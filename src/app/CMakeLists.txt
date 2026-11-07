@@ -3,9 +3,10 @@ file(GLOB QBT_TS_FILES "${qBittorrent_SOURCE_DIR}/src/lang/*.ts")
 # Depends on Qt's LinguistTools
 get_target_property(QT_LUPDATE_EXECUTABLE Qt::lupdate IMPORTED_LOCATION)
 add_custom_target(qbt_update_translations
-                    COMMAND ${QT_LUPDATE_EXECUTABLE} -extensions ui,c,c++,cc,cpp,cxx,ch,h,h++,hh,hpp,hxx
-                                                     ${qBittorrent_SOURCE_DIR}
-                                                     -ts ${QBT_TS_FILES}
+                    COMMAND ${QT_LUPDATE_EXECUTABLE}
+                        -extensions ui,c,c++,cc,cpp,cxx,ch,h,h++,hh,hpp,hxx
+                        ${qBittorrent_SOURCE_DIR}
+                        -ts ${QBT_TS_FILES}
                     WORKING_DIRECTORY "${qBittorrent_SOURCE_DIR}"
                     VERBATIM
                     COMMAND_EXPAND_LISTS)
@@ -39,7 +40,7 @@ target_sources(qbt_app PRIVATE
     cmdoptions.h
     filelogger.h
     legalnotice.h
-    qtlocalpeer/qtlocalpeer.h
+    localpeer.h
     signalhandler.h
     upgrade.h
 
@@ -49,8 +50,8 @@ target_sources(qbt_app PRIVATE
     cmdoptions.cpp
     filelogger.cpp
     legalnotice.cpp
+    localpeer.cpp
     main.cpp
-    qtlocalpeer/qtlocalpeer.cpp
     signalhandler.cpp
     upgrade.cpp
 
@@ -84,6 +85,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
         "${qBittorrent_SOURCE_DIR}/dist/mac/qBitTorrentDocument.icns"
         "${qBittorrent_SOURCE_DIR}/dist/mac/qBitTorrentIncompleteData.icns"
         "${qBittorrent_SOURCE_DIR}/dist/mac/qbittorrent_mac.icns"
+        "${qBittorrent_SOURCE_DIR}/src/icons/qbittorrent-tray-light.svg"
             PROPERTIES
                 MACOSX_PACKAGE_LOCATION Resources
     )
@@ -115,6 +117,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
         ${qBittorrent_SOURCE_DIR}/dist/mac/qBitTorrentDocument.icns
         ${qBittorrent_SOURCE_DIR}/dist/mac/qBitTorrentIncompleteData.icns
         ${qBittorrent_SOURCE_DIR}/dist/mac/qbittorrent_mac.icns
+        ${qBittorrent_SOURCE_DIR}/src/icons/qbittorrent-tray-light.svg
     )
 elseif (CMAKE_SYSTEM_NAME STREQUAL "Windows")
     set_target_properties(qbt_app PROPERTIES WIN32_EXECUTABLE ON)

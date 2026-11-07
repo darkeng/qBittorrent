@@ -19,10 +19,6 @@
         <translation>Démarrer le torrent</translation>
     </message>
     <message>
-        <source>Skip hash check</source>
-        <translation>Sauter la vérification du hachage</translation>
-    </message>
-    <message>
         <source>Torrent Management Mode:</source>
         <translation>Mode de gestion de torrent :</translation>
     </message>
@@ -73,10 +69,6 @@
     <message>
         <source>Download in sequential order</source>
         <translation>Télécharger en ordre séquentiel</translation>
-    </message>
-    <message>
-        <source>Size:</source>
-        <translation>Taille :</translation>
     </message>
     <message>
         <source>Save at</source>
@@ -139,10 +131,6 @@
         <translation>Filtrer les fichiers…</translation>
     </message>
     <message>
-        <source>Add Torrent</source>
-        <translation>Ajouter un torrent</translation>
-    </message>
-    <message>
         <source>Use another path for incomplete torrent</source>
         <translation>Utiliser un autre répertoire pour un torrent incomplet</translation>
     </message>
@@ -198,6 +186,32 @@
         <source>Limit download rate</source>
         <translation>Limiter la vitesse de téléchargement</translation>
     </message>
+    <message>
+        <source>KiB/s</source>
+        <translation>Kio/s</translation>
+    </message>
+    <message>
+        <source>If set, qBittorrent will assume that all files are present for this torrent and that they all match the hashes in the torrent file. The use case for this mode is if a torrent is created and seeded, or if the user already knows that all the files are complete, this is a way to perform only basic file checks and skip initial hash checks.
+The piece hash will be checked when it is requested for the first time by a peer. If a hash check fails, all files in this torrent will be rechecked.</source>
+        <translation>Si définie, qBittorrent considérera que tous les fichiers de ce torrent sont présents et correspondent aux hachages indiqués dans le fichier torrent. Ce mode est utile lorsqu'un torrent vient d'être créé et mis en partage, ou lorsque l'utilisateur sait déjà que tous les fichiers sont complets ; cela permet d'effectuer uniquement des vérifications de base et d'ignorer la vérification initiale des hachages.
+Le hachage du morceau sera vérifié lorsqu'il sera demandé pour la première fois par un pair. En cas d'échec de cette vérification, tous les fichiers du torrent seront contrôlés à nouveau.</translation>
+    </message>
+    <message>
+        <source>Seed mode</source>
+        <translation>Mode partage</translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation>Télécharger</translation>
+    </message>
+    <message>
+        <source>%1 free</source>
+        <translation>%1 libre</translation>
+    </message>
+    <message>
+        <source>%1 needed · %2 free</source>
+        <translation>%1 requis · %2 libre</translation>
+    </message>
 </context>
 <context>
     <name>CategoryFilterModel</name>
@@ -248,6 +262,10 @@
         <source>Stop torrents</source>
         <translation>Arrêter les torrents</translation>
     </message>
+    <message>
+        <source>Force start torrents</source>
+        <translation>Forcer le démarrage des torrents</translation>
+    </message>
 </context>
 <context>
     <name>HttpServer</name>
@@ -294,10 +312,6 @@
     <message>
         <source>Maximum number of upload slots per torrent limit must be greater than 0 or disabled.</source>
         <translation>La limite du nombre maximum d'emplacements d'envoi par torrent doit être supérieure à 0 ou désactivée.</translation>
-    </message>
-    <message>
-        <source>Unable to save program preferences, qBittorrent is probably unreachable.</source>
-        <translation>Impossible d'enregistrer les préférences du programme, qBittorrent est probablement inaccessible.</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -459,10 +473,6 @@
         <translation>Exemples de configuration de proxy inverse</translation>
     </message>
     <message>
-        <source>Could not contact qBittorrent</source>
-        <translation>Ne peux pas contacter qBittorrent</translation>
-    </message>
-    <message>
         <source>Remember choice</source>
         <translation>Se souvenir du choix</translation>
     </message>
@@ -531,10 +541,6 @@
         <translation>La limite du temps de partage ne doit pas avoir une valeur négative.</translation>
     </message>
     <message>
-        <source>Peer ToS must be between 0 and 255.</source>
-        <translation type="vanished">Les paramètres ToS du pair doivent être compris entre 0 et 255.</translation>
-    </message>
-    <message>
         <source>Share ratio limit must not have a negative value.</source>
         <translation>La limite du ratio de partage ne doit pas avoir une valeur négative.</translation>
     </message>
@@ -568,7 +574,39 @@
     </message>
     <message>
         <source>Peer DSCP must be between 0 and 255.</source>
-        <translation type="unfinished" />
+        <translation>Le DSCP du pair doit être compris entre 0 et 255.</translation>
+    </message>
+    <message>
+        <source>Unable to add torrents.</source>
+        <translation>Impossible d'ajouter les torrents.</translation>
+    </message>
+    <message>
+        <source>Unable to save preferences, qBittorrent is probably unreachable.</source>
+        <translation>Impossible d'enregistrer les préférences, qBittorrent est probablement inaccessible.</translation>
+    </message>
+    <message>
+        <source>Error:</source>
+        <translation>Erreur :</translation>
+    </message>
+    <message>
+        <source>BitTorrent session shutdown timeout must be between -1 and 2147483647.</source>
+        <translation>Le délai d'arrêt de la session BitTorrent doit être compris entre -1 et 2147483647.</translation>
+    </message>
+    <message>
+        <source>Unable to resume the session.</source>
+        <translation>Impossible de reprendre la session.</translation>
+    </message>
+    <message>
+        <source>Unable to force start torrents.</source>
+        <translation>Impossible de forcer le démarrage des torrents.</translation>
+    </message>
+    <message>
+        <source>Invalid path to Python executable. Path contains unnecessary leading and trailing quotes.</source>
+        <translation>Chemin d'accès à l'exécutable Python invalide. Le chemin contient des guillemets de début et de fin inutiles.</translation>
+    </message>
+    <message>
+        <source>Unable to pause the session.</source>
+        <translation>Impossible de mettre la session en pause.</translation>
     </message>
 </context>
 <context>
@@ -640,14 +678,6 @@
     <message>
         <source>No</source>
         <translation>Non</translation>
-    </message>
-    <message>
-        <source>Global Upload Speed Limit</source>
-        <translation>Limite globale de la vitesse d'envoi</translation>
-    </message>
-    <message>
-        <source>Global Download Speed Limit</source>
-        <translation>Limite globale de la vitesse de téléchargement</translation>
     </message>
     <message>
         <source>Are you sure you want to quit qBittorrent?</source>
@@ -829,6 +859,54 @@
         <source>Filter feed items...</source>
         <translation>Éléments du filtre...</translation>
     </message>
+    <message>
+        <source>Info Hash v1</source>
+        <translation>Info hash v1</translation>
+    </message>
+    <message>
+        <source>Invert Selection</source>
+        <translation>Inverser la sélection</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation>Tout sélectionner</translation>
+    </message>
+    <message>
+        <source>Remove torrent and content</source>
+        <translation>Supprimer le torrent et son contenu</translation>
+    </message>
+    <message>
+        <source>Remove torrent</source>
+        <translation>Retirer le torrent</translation>
+    </message>
+    <message>
+        <source>Info Hash v2</source>
+        <translation>Info hash v2</translation>
+    </message>
+    <message>
+        <source>Resume session</source>
+        <translation>Reprendre la session</translation>
+    </message>
+    <message>
+        <source>[PAUSED]</source>
+        <translation>[EN PAUSE]</translation>
+    </message>
+    <message>
+        <source>Global Speed Limits</source>
+        <translation>Limites de vitesse globales</translation>
+    </message>
+    <message>
+        <source>Pause session</source>
+        <translation>Mettre la session en pause</translation>
+    </message>
+    <message>
+        <source>Pause Session</source>
+        <translation>Mettre la session en pause</translation>
+    </message>
+    <message>
+        <source>Resume Session</source>
+        <translation>Reprendre la session</translation>
+    </message>
 </context>
 <context>
     <name>OptionsDialog</name>
@@ -851,10 +929,6 @@
     <message>
         <source>BitTorrent</source>
         <translation>BitTorrent</translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation>Langue</translation>
     </message>
     <message>
         <source>Email notification upon download completion</source>
@@ -902,15 +976,7 @@
     </message>
     <message>
         <source>Keep incomplete torrents in:</source>
-        <translation>Conserver les torrents incomplets sous :</translation>
-    </message>
-    <message>
-        <source>Copy .torrent files to:</source>
-        <translation>Copier les fichiers .torrent sous :</translation>
-    </message>
-    <message>
-        <source>Copy .torrent files for finished downloads to:</source>
-        <translation>Copier les fichiers .torrent des téléchargements terminés sous :</translation>
+        <translation type="vanished">Conserver les torrents incomplets sous :</translation>
     </message>
     <message>
         <source>Pre-allocate disk space for all files</source>
@@ -927,10 +993,6 @@
     <message>
         <source>SMTP server:</source>
         <translation>Serveur SMTP :</translation>
-    </message>
-    <message>
-        <source>This server requires a secure connection (SSL)</source>
-        <translation>Nécessite une connexion sécurisée (SSL)</translation>
     </message>
     <message>
         <source>Authentication</source>
@@ -1296,7 +1358,7 @@
     </message>
     <message>
         <source>Default Torrent Management Mode:</source>
-        <translation>Mode de gestion de torrent par défaut </translation>
+        <translation>Mode de gestion de torrent par défaut</translation>
     </message>
     <message>
         <source>When adding a torrent</source>
@@ -1579,10 +1641,6 @@
         <translation>Ne pas créer de sous-dossier</translation>
     </message>
     <message>
-        <source>Type of service (ToS) for connections to peers</source>
-        <translation type="vanished">Type de service (ToS) pour les connexions aux pairs</translation>
-    </message>
-    <message>
         <source>Outgoing connections per second:</source>
         <translation>Connexions sortantes par seconde :</translation>
     </message>
@@ -1783,7 +1841,7 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     </message>
     <message>
         <source>Use proxy for BitTorrent purposes</source>
-        <translation>Utiliser un proxy à des fins BitTorrent</translation>
+        <translation>Utiliser un proxy pour BitTorrent</translation>
     </message>
     <message>
         <source>years</source>
@@ -1807,7 +1865,7 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     </message>
     <message>
         <source>Use proxy for RSS purposes</source>
-        <translation>Utiliser un proxy à des fins RSS</translation>
+        <translation>Utiliser un proxy pour les flux RSS</translation>
     </message>
     <message>
         <source>Socket send buffer size [0: system default]:</source>
@@ -1820,10 +1878,6 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     <message>
         <source>Socket receive buffer size [0: system default]:</source>
         <translation>Taille du cache de réception du socket [0: valeur par défaut]:</translation>
-    </message>
-    <message>
-        <source>Use Subcategories</source>
-        <translation type="vanished">Utiliser les sous-catégories</translation>
     </message>
     <message>
         <source>Add to top of queue</source>
@@ -1867,7 +1921,7 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     </message>
     <message>
         <source>Perform hostname lookup via proxy</source>
-        <translation>Recherche du nom d'hôte via un proxy</translation>
+        <translation>Rechercher le nom d'hôte via un proxy</translation>
     </message>
     <message>
         <source>If &amp;quot;mixed mode&amp;quot; is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers.</source>
@@ -1970,10 +2024,6 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
         <translation>Longueur entrante sur I2P :</translation>
     </message>
     <message>
-        <source>It appends the text to the window title to help distinguish qBittorent instances</source>
-        <translation>Cela ajoute le texte au titre de la fenêtre pour aider à distinguer les instances de qBittorent</translation>
-    </message>
-    <message>
         <source>The WebUI username must be at least 3 characters long.</source>
         <translation>Le nom d'utilisateur pour l'IU Web doit comporter au moins 3 caractères.</translation>
     </message>
@@ -1988,10 +2038,6 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     <message>
         <source>Color scheme:</source>
         <translation>Modèle de couleur :</translation>
-    </message>
-    <message>
-        <source>Show external IP in status bar</source>
-        <translation>Afficher l'adresse IP externe dans la barre d'état</translation>
     </message>
     <message>
         <source>Fetched trackers</source>
@@ -2028,10 +2074,6 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     <message>
         <source>URL:</source>
         <translation>URL :</translation>
-    </message>
-    <message>
-        <source>Transfer list</source>
-        <translation>Liste des transferts</translation>
     </message>
     <message>
         <source>The announce port must be between 0 and 65535.</source>
@@ -2082,10 +2124,6 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
         <translation>Exécuter à la complétion d'un torrent:</translation>
     </message>
     <message>
-        <source>Attempted to send email. Check your inbox to confirm success</source>
-        <translation>Tentative d'envoi d'un courriel. Vérifiez votre boîte de réception pour confirmer la réussite</translation>
-    </message>
-    <message>
         <source>Automatically append trackers from URL to new downloads:</source>
         <translation>Ajouter automatiquement les trackeurs de l'URL aux nouveaux téléchargements :</translation>
     </message>
@@ -2111,7 +2149,7 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     </message>
     <message>
         <source>Run on torrent added:</source>
-        <translation>Exécution à l'ajout d'un torrent :</translation>
+        <translation>Exécuter lors de l'ajout d'un torrent :</translation>
     </message>
     <message>
         <source>Port reported to trackers (requires restart) [0: listening port]:</source>
@@ -2160,10 +2198,6 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     <message>
         <source>Log Files</source>
         <translation>Fichier journal</translation>
-    </message>
-    <message>
-        <source>Enable optimized table rendering (experimental)</source>
-        <translation>Activer le rendu optimisé du tableau (expérimental)</translation>
     </message>
     <message>
         <source>Note: The password is saved unencrypted</source>
@@ -2223,6 +2257,278 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     </message>
     <message>
         <source>Differentiated Services Code Point (DSCP) for connections to peers</source>
+        <translation>Point de code de services différenciés (DSCP) pour les connexions aux pairs</translation>
+    </message>
+    <message>
+        <source>no encryption used when sending emails</source>
+        <translation>Aucun chiffrement n'est utilisé lors de l'envoi des courriels.</translation>
+    </message>
+    <message>
+        <source>SMTPS</source>
+        <translation>SMTPS</translation>
+    </message>
+    <message>
+        <source>(alternative choice if supported)</source>
+        <translation>(choix alternatif si possible)</translation>
+    </message>
+    <message>
+        <source>use SMTPS encryption when sending emails</source>
+        <translation>Utilisez le chiffrement SMTPS lors de l'envoi de courriels.</translation>
+    </message>
+    <message>
+        <source>Compact</source>
+        <translation>Compacte</translation>
+    </message>
+    <message>
+        <source>Display density:</source>
+        <translation>Densité de l'affichage :</translation>
+    </message>
+    <message>
+        <source>SMTP encryption:</source>
+        <translation>Chiffrement SMTP :</translation>
+    </message>
+    <message>
+        <source>Default port</source>
+        <translation>Port par défaut</translation>
+    </message>
+    <message>
+        <source>STARTTLS</source>
+        <translation>STARTTLS</translation>
+    </message>
+    <message>
+        <source>Enable optimized table rendering</source>
+        <translation>Activer l'affichage optimisé des tableaux</translation>
+    </message>
+    <message>
+        <source>Select the encryption type used when sending SMTP emails</source>
+        <translation>Sélectionnez le type de chiffrement utilisé lors de l'envoi de courriels SMTP.</translation>
+    </message>
+    <message>
+        <source>It appends the text to the window title to help distinguish qBittorrent instances</source>
+        <translation>Cela ajoute le texte au titre de la fenêtre pour aider à distinguer les instances de qBitTorrent</translation>
+    </message>
+    <message>
+        <source>(last choice if no other option)</source>
+        <translation>(dernier choix en l'absence d'autre option)</translation>
+    </message>
+    <message>
+        <source>Date format:</source>
+        <translation>Format de la date :</translation>
+    </message>
+    <message>
+        <source>Browser default</source>
+        <translation>Paramètres par défaut du navigateur</translation>
+    </message>
+    <message>
+        <source>Resolve peer host names:</source>
+        <translation>Résoudre les noms d'hôtes des pairs :</translation>
+    </message>
+    <message>
+        <source>Pread/pwrite</source>
+        <translation>Pread/pwrite</translation>
+    </message>
+    <message>
+        <source>use STARTTLS encryption when sending emails</source>
+        <translation>utiliser le chiffrement STARTTLS lors de l'envoi de courriels</translation>
+    </message>
+    <message>
+        <source>The WebUI username must not contain a colon.</source>
+        <translation>Le nom d'utilisateur de l'IU Web ne doit pas contenir de deux-points.</translation>
+    </message>
+    <message>
+        <source>Localization</source>
+        <translation>Localisation</translation>
+    </message>
+    <message>
+        <source>(best choice if supported)</source>
+        <translation>(meilleur choix si disponible)</translation>
+    </message>
+    <message>
+        <source>Provide the sending email address.</source>
+        <translation>Fournir l'adresse courriel de l'expéditeur.</translation>
+    </message>
+    <message>
+        <source>Enable I2P Peer Exchange (I2P PeX) to find more peers (requires restart)</source>
+        <translation>Activer l'échange de pairs I2P (I2P PeX) pour trouver davantage de pairs (requiert un redémarrage)</translation>
+    </message>
+    <message>
+        <source>Status bar</source>
+        <translation>Barre d'état</translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation>Notification</translation>
+    </message>
+    <message>
+        <source>Could not contact qBittorrent.</source>
+        <translation>N'a pas pu contacter qBittorrent.</translation>
+    </message>
+    <message>
+        <source>Separate multiple emails with a semicolon.</source>
+        <translation>Séparer les adresses courriels multiples par un point-virgule.</translation>
+    </message>
+    <message>
+        <source>Allow multiple connections from the same Peer ID:</source>
+        <translation>Autoriser plusieurs connexions depuis le même ID de pair :</translation>
+    </message>
+    <message>
+        <source>Attempted to send test email.&lt;br&gt;Check your inbox to confirm success.&lt;br&gt;Check the Execution Log for errors.</source>
+        <translation type="vanished">Tentative d'envoi d'un courriel de test.&lt;br&gt;Vérifiez votre boîte de réception pour confirmer la réussite.&lt;br&gt;Consultez le journal d'exécution pour détecter des erreurs.</translation>
+    </message>
+    <message>
+        <source>Sessions count limit:</source>
+        <translation>Limite du nombre de sessions :</translation>
+    </message>
+    <message>
+        <source>I2P outbound length variance:</source>
+        <translation>Variation de la longueur sortante I2P :</translation>
+    </message>
+    <message>
+        <source>Transfer List</source>
+        <translation>Liste des transferts</translation>
+    </message>
+    <message>
+        <source>Start BitTorrent session in paused state:</source>
+        <translation>Démarrer la session BitTorrent en pause :</translation>
+    </message>
+    <message>
+        <source>Store backup in:</source>
+        <translation>Enregistrer la sauvegarde dans :</translation>
+    </message>
+    <message>
+        <source>Save search tabs</source>
+        <translation>Enregistrer les onglets de recherche</translation>
+    </message>
+    <message>
+        <source>Store backup .torrent file</source>
+        <translation>Enregistrer le fichier de sauvegarde .torrent</translation>
+    </message>
+    <message>
+        <source>Note: b@y.com &amp; c@z.com will both see each other's email addresses, whereas a@x.com will not see them nor be seen.</source>
+        <translation>Remarque : b@y.com et c@z.com verront chacun l'adresse courriel de l'autre, tandis que a@x.com ne les verra pas et ne sera pas vu par eux.</translation>
+    </message>
+    <message>
+        <source>Display torrent content and some options</source>
+        <translation>Afficher le contenu du torrent et quelques paramètres</translation>
+    </message>
+    <message>
+        <source>Separate multiple email addresses within each email with a comma.</source>
+        <translation>Séparer les adresses courriels multiples au sein de chaque courriel par une virgule.</translation>
+    </message>
+    <message>
+        <source>Provide the recipient email address or addresses.</source>
+        <translation>Indiquer l'adresse ou les adresses courriels des destinataires.</translation>
+    </message>
+    <message>
+        <source>Show external IP</source>
+        <translation>Afficher l'adresse IP externe</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>Rechercher</translation>
+    </message>
+    <message>
+        <source>BitTorrent session shutdown timeout [-1: unlimited]:</source>
+        <translation>Délai d'arrêt de la session BitTorrent [-1 : illimité] :</translation>
+    </message>
+    <message>
+        <source>Example:</source>
+        <translation>Exemple :</translation>
+    </message>
+    <message>
+        <source>Provide the SMTP server address for sending email notifications.</source>
+        <translation>Indiquer l'adresse du serveur SMTP pour l'envoi de notifications par courriel.</translation>
+    </message>
+    <message>
+        <source>smtp.example.com:465 - connect to server smtp.example.com on port 465</source>
+        <translation>smtp.example.com:465 - connexion au serveur smtp.example.com sur le port 465</translation>
+    </message>
+    <message>
+        <source>Maximum outstanding block requests from a peer:</source>
+        <translation>Nombre maximal de requêtes de blocs en attente provenant d'un pair :</translation>
+    </message>
+    <message>
+        <source>Also save search results</source>
+        <translation>Enregistrer également les résultats de recherche</translation>
+    </message>
+    <message>
+        <source>I2P inbound length variance:</source>
+        <translation>Variation de la longueur des messages entrants I2P :</translation>
+    </message>
+    <message>
+        <source>To manually specify the server port, add a colon and then the port number to the end.</source>
+        <translation>Pour spécifier manuellement le port du serveur, ajoutez un deux-points suivi du numéro de port à la fin.</translation>
+    </message>
+    <message>
+        <source>Remove backup when removing torrent</source>
+        <translation>Supprimer la sauvegarde lors de la suppression du torrent</translation>
+    </message>
+    <message>
+        <source>When torrent finished move backup to:</source>
+        <translation>Une fois le torrent terminé, déplacer la sauvegarde vers :</translation>
+    </message>
+    <message>
+        <source>STUN server for WebTorrent NAT traversal:</source>
+        <translation>Serveur STUN pour la traversée du NAT avec WebTorrent :</translation>
+    </message>
+    <message>
+        <source>The server address can be entered either as a DNS name or an IP address (DNS name recommended).</source>
+        <translation>L'adresse du serveur peut être saisie sous forme de nom DNS ou d'adresse IP (nom DNS recommandé).</translation>
+    </message>
+    <message>
+        <source>Allow outgoing connections when seeding:</source>
+        <translation>Autoriser les connexions sortantes lors du partage :</translation>
+    </message>
+    <message>
+        <source>a@x.com;b@y.com,c@z.com - send two emails: the first to just a@x.com, the second to both b@y.com and c@z.com</source>
+        <translation>a@x.com;b@y.com,c@z.com – envoyer deux courriels : le premier uniquement à a@x.com, le second à la fois à b@y.com et à c@z.com</translation>
+    </message>
+    <message>
+        <source>Attempted to send test email.\nCheck your inbox to confirm success.\nCheck the Execution Log for errors.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>All the above</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Confirm removal of all tags:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Also delete .torrent files whose addition was cancelled</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Also when addition is cancelled</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Use another path for incomplete torrents:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Confirm removal of tracker from all torrents:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Any of the above</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Blacklist filtered file names from being downloaded from torrent(s).
+Files matching any of the filters in this list will have their priority automatically set to &amp;quot;Do not download&amp;quot;.
+
+Use newlines to separate multiple entries. Can use wildcards as outlined below.
+*: matches zero or more of any characters.
+?: matches any single character.
+[...]: sets of characters can be represented in square brackets.
+
+Examples
+*.exe: filter '.exe' file extension.
+readme.txt: filter exact file name.
+?.txt: filter 'a.txt', 'b.txt' but not 'aa.txt'.
+readme[0-9].txt: filter 'readme1.txt', 'readme2.txt' but not 'readme10.txt'.</source>
         <translation type="unfinished" />
     </message>
 </context>
@@ -2307,6 +2613,10 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     <message>
         <source>IP/Address</source>
         <translation>IP/Adresse</translation>
+    </message>
+    <message>
+        <source>Contribution</source>
+        <translation>Contribution</translation>
     </message>
 </context>
 <context>
@@ -2633,6 +2943,22 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
         <source>Private:</source>
         <translation>Privé :</translation>
     </message>
+    <message>
+        <source>Availability:</source>
+        <translation>Disponibilité :</translation>
+    </message>
+    <message>
+        <source>Copy path</source>
+        <translation>Copier le chemin</translation>
+    </message>
+    <message>
+        <source>Download</source>
+        <translation>Télécharger</translation>
+    </message>
+    <message>
+        <source>Copy download URL</source>
+        <translation>Copier l'URL de téléchargement</translation>
+    </message>
 </context>
 <context>
     <name>ScanFoldersModel</name>
@@ -2663,7 +2989,7 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
 </context>
 <context>
     <name>SpeedLimitDialog</name>
-    </context>
+</context>
 <context>
     <name>StatsDialog</name>
     <message>
@@ -2729,6 +3055,22 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     <message>
         <source>Total queued size:</source>
         <translation>Taille totale des fichiers en file d'attente :</translation>
+    </message>
+    <message>
+        <source>Tracker statistics</source>
+        <translation>Statistiques du tracker</translation>
+    </message>
+    <message>
+        <source>Queued tracker announces:</source>
+        <translation>Le tracker en file d'attente annonce :</translation>
+    </message>
+    <message>
+        <source>Request latency:</source>
+        <translation>Latence de la requête :</translation>
+    </message>
+    <message>
+        <source>The time it takes from receiving a request from a peer until we're sending the response back on the socket</source>
+        <translation>Le temps écoulé entre la réception d'une requête provenant d'un pair et l'envoi de la réponse sur le socket.</translation>
     </message>
 </context>
 <context>
@@ -2799,27 +3141,27 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     </message>
     <message>
         <source>Stalled Uploading (%1)</source>
-        <translation>Bloqués en envoi (%1)</translation>
+        <translation>Dormants en envoi (%1)</translation>
     </message>
     <message>
         <source>Stalled Downloading (%1)</source>
-        <translation>Bloqués en réception (%1)</translation>
+        <translation>Dormants en réception (%1)</translation>
     </message>
     <message>
         <source>Stalled Downloading (0)</source>
-        <translation>Bloqués en réception (0)</translation>
+        <translation>Dormants en réception (0)</translation>
     </message>
     <message>
         <source>Stalled (0)</source>
-        <translation>Bloqué (0)</translation>
+        <translation>Dormants (0)</translation>
     </message>
     <message>
         <source>Stalled Uploading (0)</source>
-        <translation>Bloqués en envoi (0)</translation>
+        <translation>Dormants en envoi (0)</translation>
     </message>
     <message>
         <source>Stalled (%1)</source>
-        <translation>Bloqués (%1)</translation>
+        <translation>Dormants (%1)</translation>
     </message>
     <message>
         <source>Checking (%1)</source>
@@ -2865,10 +3207,14 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
         <source>Stop torrents</source>
         <translation>Arrêter les torrents</translation>
     </message>
+    <message>
+        <source>Force start torrents</source>
+        <translation>Forcer le démarrage des torrents</translation>
+    </message>
 </context>
 <context>
     <name>TorrentContentModel</name>
-    </context>
+</context>
 <context>
     <name>TransferListModel</name>
     <message>
@@ -2959,16 +3305,6 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
         <translation>Envoyé</translation>
     </message>
     <message>
-        <source>Session Download</source>
-        <comment>Amount of data downloaded since program open (e.g. in MB)</comment>
-        <translation>Téléchargement de la session</translation>
-    </message>
-    <message>
-        <source>Session Upload</source>
-        <comment>Amount of data uploaded since program open (e.g. in MB)</comment>
-        <translation>Envoi durant la session</translation>
-    </message>
-    <message>
         <source>Remaining</source>
         <comment>Amount of data left to download (e.g. in MB)</comment>
         <translation>Restant</translation>
@@ -3042,7 +3378,19 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     </message>
     <message>
         <source>Status Icon</source>
-        <translation>Icône de status </translation>
+        <translation>Icône de status</translation>
+    </message>
+    <message>
+        <source>Session Uploaded</source>
+        <translation>Envoyé durant la session</translation>
+    </message>
+    <message>
+        <source>Session Downloaded</source>
+        <translation>Téléchargé durant la session</translation>
+    </message>
+    <message>
+        <source>Created On</source>
+        <translation>Créé le</translation>
     </message>
 </context>
 <context>
@@ -3264,7 +3612,7 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     </message>
     <message>
         <source>Stalled</source>
-        <translation>Bloqué</translation>
+        <translation>Dormant</translation>
     </message>
     <message>
         <source>%1 (seeded for %2)</source>
@@ -3303,7 +3651,7 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     </message>
     <message>
         <source>Collapse/expand</source>
-        <translation>Réduire/Développer </translation>
+        <translation>Réduire/Développer</translation>
     </message>
     <message>
         <source>Collapse/expand category</source>
@@ -3510,6 +3858,10 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
         <source>Content Path</source>
         <translation>Chemin du contenu</translation>
     </message>
+    <message>
+        <source>Remove all tags from selected torrents?</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>UpDownRatioDialog</name>
@@ -3565,10 +3917,26 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
         <source>Action when the limit is reached</source>
         <translation>Action lorsque la limite est atteinte</translation>
     </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Match any limit</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Default (Match any limit)</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Match all the limits</source>
+        <translation type="unfinished" />
+    </message>
 </context>
 <context>
     <name>about</name>
-    </context>
+</context>
 <context>
     <name>confirmDeletionDlg</name>
     <message>
@@ -3661,6 +4029,10 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     <message>
         <source>%1y %2d</source>
         <translation>%1 a %2 j</translation>
+    </message>
+    <message>
+        <source>%1s</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -3874,7 +4246,7 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     </message>
     <message>
         <source>Url</source>
-        <translation>URL</translation>
+        <translation type="vanished">URL</translation>
     </message>
     <message>
         <source>Enabled</source>
@@ -3891,6 +4263,10 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     <message>
         <source>No</source>
         <translation>Non</translation>
+    </message>
+    <message>
+        <source>URL</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -3953,6 +4329,10 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     <message>
         <source>Stop torrents</source>
         <translation>Arrêter les torrents</translation>
+    </message>
+    <message>
+        <source>Force start torrents</source>
+        <translation>Forcer le démarrage des torrents</translation>
     </message>
 </context>
 <context>
@@ -4122,6 +4502,38 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
         <source>Refresh tab</source>
         <translation>Actualiser l'onglet</translation>
     </message>
+    <message>
+        <source>Stop search</source>
+        <translation>Arrêter la recherche</translation>
+    </message>
+    <message>
+        <source>Use as search text</source>
+        <translation>Utiliser comme texte de recherche</translation>
+    </message>
+    <message>
+        <source>Open download window</source>
+        <translation>Ouvrir la fenêtre de téléchargement</translation>
+    </message>
+    <message>
+        <source>Blocked opening search result description page URL. Only http:// and https:// links can be opened.</source>
+        <translation>Ouverture de l'URL de la page de description du résultat de recherche bloquée. Seuls les liens http:// et https:// peuvent être ouverts.</translation>
+    </message>
+    <message>
+        <source>Add %1 torrents</source>
+        <translation>Ajouter %1 torrents</translation>
+    </message>
+    <message>
+        <source>Search results are no longer available</source>
+        <translation>Les résultats de recherche ne sont plus disponibles.</translation>
+    </message>
+    <message>
+        <source>Open separate download windows</source>
+        <translation>Ouvrir des fenêtres de téléchargement distinctes</translation>
+    </message>
+    <message>
+        <source>Open shared download window</source>
+        <translation>Ouvrir la fenêtre de téléchargement partagée</translation>
+    </message>
 </context>
 <context>
     <name>TorrentContentTreeView</name>
@@ -4255,6 +4667,22 @@ Utiliser ';' pour diviser plusieurs entrées. Le caractère générique '*' peut
     <message>
         <source>Author: </source>
         <translation>Auteur : </translation>
+    </message>
+    <message>
+        <source>Blocked opening RSS article URL. Only http:// and https:// links can be opened.</source>
+        <translation>Ouverture de l'URL de l'article RSS bloquée. Seuls les liens http:// et https:// peuvent être ouverts.</translation>
+    </message>
+    <message>
+        <source>Add %1 torrents</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Open separate download windows</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <source>Open shared download window</source>
+        <translation type="unfinished" />
     </message>
 </context>
 <context>
@@ -4513,6 +4941,26 @@ Les formats supportés : S01E01, 1x1, 2017.12.31 et 31.12.2017 (les formats date
         <source>Add Stopped:</source>
         <translation>Ajouter arrêté :</translation>
     </message>
+    <message>
+        <source>Rule cloning</source>
+        <translation>Clonage de règles</translation>
+    </message>
+    <message>
+        <source>Clear downloaded episodes confirmation</source>
+        <translation>Confirmation de la suppression des épisodes téléchargés</translation>
+    </message>
+    <message>
+        <source>Clone rule...</source>
+        <translation>Cloner la règle...</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation>Exporter</translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation>Importer</translation>
+    </message>
 </context>
 <context>
     <name>TrackerFiltersList</name>
@@ -4551,6 +4999,10 @@ Les formats supportés : S01E01, 1x1, 2017.12.31 et 31.12.2017 (les formats date
     <message>
         <source>Other error</source>
         <translation>Autre erreur</translation>
+    </message>
+    <message>
+        <source>Force start torrents</source>
+        <translation>Forcer le démarrage des torrents</translation>
     </message>
 </context>
 <context>
@@ -4760,6 +5212,14 @@ Les formats supportés : S01E01, 1x1, 2017.12.31 et 31.12.2017 (les formats date
         <source>Use another path for incomplete torrents:</source>
         <translation>Utiliser un autre répertoire pour les torrents incomplets :</translation>
     </message>
+    <message>
+        <source>Category does not exist</source>
+        <translation>La catégorie n'existe pas</translation>
+    </message>
+    <message>
+        <source>Torrent share limits</source>
+        <translation>Limites de partage du torrent</translation>
+    </message>
 </context>
 <context>
     <name>CookiesDialog</name>
@@ -4829,7 +5289,7 @@ Les formats supportés : S01E01, 1x1, 2017.12.31 et 31.12.2017 (les formats date
     <name>Login</name>
     <message>
         <source>qBittorrent WebUI</source>
-        <translation>IU Web de qBittorrent </translation>
+        <translation>IU Web de qBittorrent</translation>
     </message>
     <message>
         <source>Password</source>
@@ -4879,12 +5339,6 @@ Les formats supportés : S01E01, 1x1, 2017.12.31 et 31.12.2017 (les formats date
         <translation>Impossible de créer le torrent.</translation>
     </message>
     <message>
-        <source>Private
-                torrent (Won't distribute on DHT network)</source>
-        <translation>Privé
-torrent (ne sera pas distribué sur le réseau DHT)</translation>
-    </message>
-    <message>
         <source>Unable to export torrent file</source>
         <translation>Impossible d'exporter le fichier torrent</translation>
     </message>
@@ -4902,7 +5356,7 @@ torrent (ne sera pas distribué sur le réseau DHT)</translation>
     </message>
     <message>
         <source>Status Icon</source>
-        <translation>Icône de status </translation>
+        <translation>Icône de status</translation>
     </message>
     <message>
         <source>Web seed URLs:</source>
@@ -4933,12 +5387,6 @@ torrent (ne sera pas distribué sur le réseau DHT)</translation>
         <translation>Statut</translation>
     </message>
     <message>
-        <source>Align to piece boundary for files larger
-                than:</source>
-        <translation>Aligner sur la limite du morceau pour les fichiers plus grands
-que :</translation>
-    </message>
-    <message>
         <source>Select file/folder to share:</source>
         <translation>Sélectionner un fichier/dossier à partager :</translation>
     </message>
@@ -4961,12 +5409,6 @@ que :</translation>
     <message>
         <source>Unable to load torrent creation tasks</source>
         <translation>Impossible de charger les tâches de création du torrent</translation>
-    </message>
-    <message>
-        <source>Optimize
-                    alignment</source>
-        <translation>Optimiser
-l'alignement</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -4994,19 +5436,11 @@ l'alignement</translation>
     </message>
     <message>
         <source>Started On</source>
-        <translation>Démarré le </translation>
+        <translation>Démarré le</translation>
     </message>
     <message>
         <source>Web Seeds</source>
         <translation>Sources Web</translation>
-    </message>
-    <message>
-        <source>Start
-                seeding
-                immediately</source>
-        <translation>Commencer
-le partage
-immédiatement</translation>
     </message>
     <message>
         <source>Format</source>
@@ -5056,13 +5490,45 @@ immédiatement</translation>
         <source>Export Torrent</source>
         <translation>Exporter le torrent</translation>
     </message>
+    <message>
+        <source>Yes</source>
+        <translation>Oui</translation>
+    </message>
+    <message>
+        <source>Ignore dotfiles</source>
+        <translation>Ignorer les fichiers débutant par un point</translation>
+    </message>
+    <message>
+        <source>Align to piece boundary for files larger than:</source>
+        <translation>Aligner sur la limite du morceau pour les fichiers plus grands que :</translation>
+    </message>
+    <message>
+        <source>Private torrent (Won't distribute on DHT network)</source>
+        <translation>Torrent privé (ne sera pas distribué sur le réseau DHT)</translation>
+    </message>
+    <message>
+        <source>Ignore Dotfiles</source>
+        <translation>Ignorer les fichiers débutant par un point</translation>
+    </message>
+    <message>
+        <source>Start seeding immediately</source>
+        <translation>Commencer le partage immédiatement</translation>
+    </message>
+    <message>
+        <source>Optimize alignment</source>
+        <translation>Optimiser l'alignement</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>Non</translation>
+    </message>
+    <message>
+        <source>If checked, filenames starting with a period punctuation mark `.` will not be added to the created torrent.</source>
+        <translation>Si cette option est cochée, les noms de fichiers commençant par un point `.` ne seront pas ajoutés au torrent créé.</translation>
+    </message>
 </context>
 <context>
     <name>DownloadFromURLDialog</name>
-    <message>
-        <source>Download</source>
-        <translation>Télécharger</translation>
-    </message>
     <message>
         <source>Magnet link</source>
         <translation>Lien magnet</translation>
@@ -5082,6 +5548,26 @@ immédiatement</translation>
     <message>
         <source>Add Torrent Links</source>
         <translation>Ajouter les liens de torrents</translation>
+    </message>
+    <message>
+        <source>Add %1 torrents</source>
+        <translation>Ajouter %1 torrents</translation>
+    </message>
+    <message>
+        <source>Open separate dialog for each torrent</source>
+        <translation>Ouvrir une boîte de dialogue distincte pour chaque torrent</translation>
+    </message>
+    <message>
+        <source>Add Torrents</source>
+        <translation>Ajouter des torrents</translation>
+    </message>
+    <message>
+        <source>Continue</source>
+        <translation>Continuer</translation>
+    </message>
+    <message>
+        <source>All torrents will use a single options dialog. Check below to configure each one separately.</source>
+        <translation>Tous les torrents utiliseront une fenêtre d'options unique. Consultez la section ci-dessous pour configurer chacun d'eux séparément.</translation>
     </message>
 </context>
 <context>
@@ -5105,6 +5591,46 @@ immédiatement</translation>
     <message>
         <source>KiB/s</source>
         <translation>Kio/s</translation>
+    </message>
+    <message>
+        <source>Upload speed</source>
+        <translation>Vitesse d'envoi</translation>
+    </message>
+    <message>
+        <source>Download speed</source>
+        <translation>Vitesse de réception</translation>
+    </message>
+    <message>
+        <source>Speed limits</source>
+        <translation>Limites de vitesse</translation>
+    </message>
+    <message>
+        <source>Alternative download speed</source>
+        <translation>Vitesse de réception alternative</translation>
+    </message>
+    <message>
+        <source>Alternative upload speed</source>
+        <translation>Vitesse d'envoi alternative</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Appliquer</translation>
+    </message>
+    <message>
+        <source>Upload:</source>
+        <translation>Envoi :</translation>
+    </message>
+    <message>
+        <source>Alternative speed limits</source>
+        <translation>Limites de vitesse alternatives</translation>
+    </message>
+    <message>
+        <source>Download:</source>
+        <translation>Téléchargement :</translation>
+    </message>
+    <message>
+        <source>Failed to set speed limits</source>
+        <translation>Échec de la définition des limites de vitesse</translation>
     </message>
 </context>
 <context>
@@ -5131,6 +5657,131 @@ immédiatement</translation>
     <message>
         <source>Rotate this API key? The current key will immediately stop working and a new key will be generated.</source>
         <translation>Renouvelez cette clé API ? La clé actuelle cessera immédiatement de fonctionner et une nouvelle clé sera générée.</translation>
+    </message>
+</context>
+<context>
+    <name>RSSCloneRule</name>
+    <message>
+        <source>Clone</source>
+        <translation>Clone</translation>
+    </message>
+    <message>
+        <source>Alert</source>
+        <translation>Alerte</translation>
+    </message>
+    <message>
+        <source>The cloned rule will be set as disabled and the downloaded episodes history will be cleared.</source>
+        <translation>La règle clonée sera désactivée et l'historique des épisodes téléchargés sera effacé.</translation>
+    </message>
+    <message>
+        <source>The rule name is unchanged. You must type a new rule name for the clone.</source>
+        <translation>Le nom de la règle est inchangé. Vous devez saisir un nouveau nom de règle pour le clone.</translation>
+    </message>
+    <message>
+        <source>Please type the name for the clone of the download rule.</source>
+        <translation>Veuillez saisir le nom du clone de la règle de téléchargement.</translation>
+    </message>
+    <message>
+        <source>The rule name cannot be empty.</source>
+        <translation>Le nom de la règle ne peut pas être vide.</translation>
+    </message>
+    <message>
+        <source>Unable to clone the selected rule.</source>
+        <translation>Incapable de cloner la règle sélectionnée.</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuler</translation>
+    </message>
+</context>
+<context>
+    <name>TorrentShareLimitsWidget</name>
+    <message>
+        <source>min</source>
+        <translation>min</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>Par défaut</translation>
+    </message>
+    <message>
+        <source>Enable super seeding for torrent</source>
+        <translation>Activer le super partage pour ce torrent</translation>
+    </message>
+    <message>
+        <source>Inactive seeding time:</source>
+        <translation>Temps en partage inactif :</translation>
+    </message>
+    <message>
+        <source>Match all the limits</source>
+        <translation>Correspondre à toutes les limites</translation>
+    </message>
+    <message>
+        <source>Ratio:</source>
+        <translation>Ratio :</translation>
+    </message>
+    <message>
+        <source>Match any limit</source>
+        <translation>Correspondre à n'importe quelle limite</translation>
+    </message>
+    <message>
+        <source>Remove torrent and its content</source>
+        <translation>Retiré les torrent et son contenu</translation>
+    </message>
+    <message>
+        <source>Share limit values cannot be empty or invalid.</source>
+        <translation>Les valeurs de limite de partage ne peuvent pas être vides ou invalides</translation>
+    </message>
+    <message>
+        <source>Action when the limit is reached:</source>
+        <translation>Action lorsque la limite est atteinte :</translation>
+    </message>
+    <message>
+        <source>From category (%1)</source>
+        <translation>De la catégorie (%1)</translation>
+    </message>
+    <message>
+        <source>Set to</source>
+        <translation>Définit à</translation>
+    </message>
+    <message>
+        <source>From category</source>
+        <translation>De la catégorie</translation>
+    </message>
+    <message>
+        <source>Default (%1)</source>
+        <translation>Par défaut (%1)</translation>
+    </message>
+    <message>
+        <source>Seeding time:</source>
+        <translation>Temps en partage :</translation>
+    </message>
+    <message>
+        <source>Unlimited</source>
+        <translation>Illimité</translation>
+    </message>
+    <message>
+        <source>Stop torrent</source>
+        <translation>Arrêter le torrent</translation>
+    </message>
+    <message>
+        <source>Mode:</source>
+        <translation>Mode :</translation>
+    </message>
+    <message>
+        <source>Remove torrent</source>
+        <translation>Retirer le torrent</translation>
+    </message>
+</context>
+<context>
+    <name>TorrentContent</name>
+    <message>
+        <source>Unavailable until all selected files are downloaded</source>
+        <translation>Indisponible tant que tous les fichiers sélectionnés ne sont pas téléchargés.</translation>
+    </message>
+    <message>
+        <source>Not available for folders</source>
+        <translation>Non disponible pour les dossiers</translation>
     </message>
 </context>
 </TS>

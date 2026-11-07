@@ -1,6 +1,6 @@
 /*
  * Bittorrent Client using Qt and libtorrent.
- * Copyright (C) 2014-2024  Vladimir Golovnev <glassez@yandex.ru>
+ * Copyright (C) 2014-2026  Vladimir Golovnev <glassez@yandex.ru>
  * Copyright (C) 2006  Christophe Dumez <chris@qbittorrent.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -67,8 +67,6 @@ Q_IMPORT_PLUGIN(QICOPlugin)
 #include <cstdio>
 #endif // DISABLE_GUI
 
-#include "base/global.h"
-#include "base/logger.h"
 #include "base/preferences.h"
 #include "base/profile.h"
 #include "base/settingvalue.h"
@@ -80,9 +78,14 @@ Q_IMPORT_PLUGIN(QICOPlugin)
 
 #ifndef DISABLE_GUI
 #include "gui/utils.h"
+#else
+#ifndef Q_OS_WIN
+#include "base/logger.h"
+#endif
 #endif
 
 using namespace std::chrono_literals;
+using namespace Qt::Literals::StringLiterals;
 
 namespace
 {
@@ -273,7 +276,7 @@ int main(int argc, char *argv[])
         // Since Apple made difficult for users to set PATH, we set here for convenience.
         // Users are supposed to install Homebrew Python for search function.
         // For more info see issue #5571.
-        const QByteArray path = "/usr/local/bin:" + qgetenv("PATH");
+        const QByteArray path = "/opt/homebrew/bin:/usr/local/bin:" + qgetenv("PATH");
         qputenv("PATH", path.constData());
 
         // On OS X the standard is to not show icons in the menus

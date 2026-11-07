@@ -70,7 +70,7 @@ namespace Utils::Misc
 
     QString unitString(SizeUnit unit, bool isSpeed = false);
 
-    // return the best user friendly storage unit (B, KiB, MiB, GiB, TiB)
+    // return the best user-friendly storage unit (B, KiB, MiB, GiB, TiB)
     // value must be given in bytes
     QString friendlyUnit(qint64 bytes, bool isSpeed = false, int precision = -1);
     QString friendlyUnitCompact(qint64 bytes);
@@ -78,7 +78,7 @@ namespace Utils::Misc
     qint64 sizeInBytes(qreal size, SizeUnit unit);
 
     bool isPreviewable(const Path &filePath);
-    bool isTorrentLink(const QString &str);
+    bool isTorrentLink(QStringView str);
 
     // Take a number of seconds and return a user-friendly
     // time duration like "1d 2h 10m".
