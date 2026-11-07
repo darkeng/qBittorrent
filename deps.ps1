@@ -65,6 +65,7 @@ $requiredPackages = @(
     "qtbase",
     "qtsvg",
     "qttools",
+    "qttranslations",
     "libtorrent"
 )
 
