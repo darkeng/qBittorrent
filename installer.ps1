@@ -10,6 +10,11 @@ param(
     [string]$CpuArch = "x64",
 
     [string]$Version,
+
+    # Carpeta Microsoft.VC*.CRT con las DLL del runtime de Visual C++.
+    # Si se omite, se busca en la instalacion de Visual Studio.
+    [string]$VcRedistDir,
+
     [switch]$SkipBuild,
     [switch]$SkipQtDeploy,
     [switch]$CleanPayload
@@ -76,6 +81,39 @@ function Find-WindeployQt {
     $vcpkgCandidate = Join-Path $env:USERPROFILE "vcpkg\installed\x64-windows\tools\Qt6\bin\windeployqt.exe"
     if (Test-Path $vcpkgCandidate) {
         return $vcpkgCandidate
+    }
+
+    return $null
+}
+
+function Find-VcRuntimeDir {
+    param([string]$Arch)
+
+    $redistRoots = @()
+    if ($env:VCToolsRedistDir) {
+        $redistRoots += $env:VCToolsRedistDir
+    }
+
+    $vswhere = Join-Path ${env:ProgramFiles(x86)} "Microsoft Visual Studio\Installer\vswhere.exe"
+    if (Test-Path $vswhere) {
+        $vsPath = & $vswhere -latest -products * -property installationPath
+        if (($LASTEXITCODE -eq 0) -and $vsPath) {
+            $msvcRedist = Join-Path $vsPath "VC\Redist\MSVC"
+            if (Test-Path $msvcRedist) {
+                $redistRoots += Get-ChildItem $msvcRedist -Directory |
+                    Where-Object { $_.Name -match '^\d+(\.\d+)+$' } |
+                    Sort-Object { [version]$_.Name } -Descending |
+                    ForEach-Object { $_.FullName }
+            }
+        }
+    }
+
+    foreach ($root in $redistRoots) {
+        $crtDir = Get-ChildItem (Join-Path $root $Arch) -Directory -Filter "Microsoft.VC*.CRT" -ErrorAction SilentlyContinue |
+            Select-Object -First 1
+        if ($crtDir) {
+            return $crtDir.FullName
+        }
     }
 
     return $null
@@ -157,6 +195,18 @@ Copy-Item (Join-Path $buildConfigDir "*") $payloadDir -Recurse -Force
 if (-not (Test-Path (Join-Path $payloadDir "qbittorrent.exe"))) {
     throw "No se encontro qbittorrent.exe en el payload: $payloadDir"
 }
+
+# El build enlaza el runtime de Visual C++ de forma dinamica; sin estas DLL
+# qBittorrent no arranca en equipos sin el Visual C++ Redistributable.
+if (-not $VcRedistDir) {
+    $VcRedistDir = Find-VcRuntimeDir -Arch $CpuArch
+}
+if ((-not $VcRedistDir) -or (-not (Test-Path (Join-Path $VcRedistDir "vcruntime140.dll")))) {
+    throw "No se encontro el runtime de Visual C++ (Microsoft.VC*.CRT\vcruntime140.dll). Instala las herramientas MSVC de Visual Studio o indica la carpeta con -VcRedistDir."
+}
+
+Write-Host "==> Copiando runtime de Visual C++ desde $VcRedistDir"
+Copy-Item (Join-Path $VcRedistDir "*.dll") $payloadDir -Force
 
 if ((Test-Path $nsisPluginsZip) -and (-not (Test-Path $nsisPluginsDir))) {
     Write-Host "==> Extrayendo NSISPlugins.zip"

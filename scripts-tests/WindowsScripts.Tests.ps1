@@ -69,6 +69,15 @@ function New-StaleFile {
     Set-Content -Path $path -Value "stale"
 }
 
+function New-FakeVcRuntime {
+    param($Sandbox)
+
+    foreach ($dll in @("msvcp140.dll", "vcruntime140.dll", "vcruntime140_1.dll")) {
+        New-StaleFile $Sandbox "fake-crt\$dll"
+    }
+    return (Join-Path $Sandbox.Root "fake-crt")
+}
+
 function Invoke-ScriptUnderTest {
     param($Sandbox, [string]$Script, [string[]]$Arguments)
 
@@ -199,10 +208,39 @@ Test-Case "installer.ps1 falla y no reporta un instalador viejo si makensis fall
     New-StaleFile $sb "dist\windows\qbittorrent.nsi"
     New-StaleFile $sb "dist\windows\qbittorrent_0.0.0_x64_setup.exe"
 
-    $result = Invoke-ScriptUnderTest $sb "installer.ps1" @("-Configuration", "Release", "-SkipBuild", "-SkipQtDeploy")
+    $crtDir = New-FakeVcRuntime $sb
+
+    $result = Invoke-ScriptUnderTest $sb "installer.ps1" @("-Configuration", "Release", "-SkipBuild", "-SkipQtDeploy", "-VcRedistDir", $crtDir)
 
     Assert-True ($result.ExitCode -ne 0) "installer.ps1 termino con codigo 0 aunque makensis fallo"
     Assert-True ($result.Output -notmatch "Installer OK") "installer.ps1 reporto un instalador viejo como resultado"
+}
+
+Test-Case "installer.ps1 incluye el runtime de Visual C++ en el payload" {
+    $sb = New-Sandbox
+    Set-FakeTool $sb "makensis"
+    New-StaleFile $sb "build\Release\qbittorrent.exe"
+    New-StaleFile $sb "dist\windows\qbittorrent.nsi"
+    $crtDir = New-FakeVcRuntime $sb
+
+    $result = Invoke-ScriptUnderTest $sb "installer.ps1" @("-Configuration", "Release", "-SkipBuild", "-SkipQtDeploy", "-VcRedistDir", $crtDir)
+
+    Assert-True ($result.ExitCode -eq 0) "installer.ps1 fallo: $($result.Output)"
+    foreach ($dll in @("msvcp140.dll", "vcruntime140.dll", "vcruntime140_1.dll")) {
+        Assert-True (Test-Path (Join-Path $sb.Root "dist\windows\qBittorrent\$dll")) "Falta $dll en el payload"
+    }
+}
+
+Test-Case "installer.ps1 falla si no encuentra el runtime de Visual C++" {
+    $sb = New-Sandbox
+    Set-FakeTool $sb "makensis"
+    New-StaleFile $sb "build\Release\qbittorrent.exe"
+    New-StaleFile $sb "dist\windows\qbittorrent.nsi"
+
+    $result = Invoke-ScriptUnderTest $sb "installer.ps1" @("-Configuration", "Release", "-SkipBuild", "-SkipQtDeploy", "-VcRedistDir", (Join-Path $sb.Root "no-existe"))
+
+    Assert-True ($result.ExitCode -ne 0) "installer.ps1 termino con codigo 0 sin runtime de Visual C++"
+    Assert-True ($result.Calls -notmatch "makensis") "installer.ps1 genero el instalador sin runtime de Visual C++"
 }
 
 foreach ($dir in $script:sandboxes) {
