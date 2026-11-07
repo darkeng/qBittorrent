@@ -83,7 +83,7 @@ if ($Clean) {
 }
 
 Write-Host "==> Configurando con CMake"
-& $cmakeExe -B $BuildDir -G "Visual Studio 17 2022" -A x64 -T host=x64 -DCMAKE_TOOLCHAIN_FILE=$toolchainFile -DVCPKG_TARGET_TRIPLET=x64-windows
+& $cmakeExe -B $BuildDir -G "Visual Studio 17 2022" -A x64 -T host=x64 "-DCMAKE_TOOLCHAIN_FILE=$toolchainFile" -DVCPKG_TARGET_TRIPLET=x64-windows
 
 Write-Host "==> Compilando ($Configuration)"
 & $cmakeExe --build $BuildDir --config $Configuration
