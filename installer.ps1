@@ -17,6 +17,15 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# $ErrorActionPreference no detiene el script cuando falla un ejecutable nativo.
+function Assert-LastExitCode {
+    param([string]$Step)
+
+    if ($LASTEXITCODE -ne 0) {
+        throw "$Step fallo con codigo de salida $LASTEXITCODE."
+    }
+}
+
 function Find-CMake {
     $cmakeCmd = Get-Command cmake -ErrorAction SilentlyContinue
     if ($cmakeCmd) {
@@ -82,6 +91,7 @@ function Deploy-QtRuntime {
 
     $modeArg = if ($BuildConfiguration -eq "Release") { "--release" } else { "--debug" }
     & $WindeployQtExe $modeArg --dir $OutputDir $ExePath
+    Assert-LastExitCode "windeployqt"
 }
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -173,6 +183,7 @@ try {
     $nsisArgs += "qbittorrent.nsi"
 
     & $makensisExe @nsisArgs
+    Assert-LastExitCode "makensis"
 }
 finally {
     Pop-Location

@@ -11,6 +11,15 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# $ErrorActionPreference no detiene el script cuando falla un ejecutable nativo.
+function Assert-LastExitCode {
+    param([string]$Step)
+
+    if ($LASTEXITCODE -ne 0) {
+        throw "$Step fallo con codigo de salida $LASTEXITCODE."
+    }
+}
+
 function Find-CMake {
     $cmakeCmd = Get-Command cmake -ErrorAction SilentlyContinue
     if ($cmakeCmd) {
@@ -56,6 +65,7 @@ function Deploy-QtRuntime {
 
     $modeArg = if ($BuildConfiguration -eq "Release") { "--release" } else { "--debug" }
     & $WindeployQtExe $modeArg --dir $OutputDir $ExePath
+    Assert-LastExitCode "windeployqt"
 }
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -84,9 +94,11 @@ if ($Clean) {
 
 Write-Host "==> Configurando con CMake"
 & $cmakeExe -B $BuildDir -G "Visual Studio 17 2022" -A x64 -T host=x64 "-DCMAKE_TOOLCHAIN_FILE=$toolchainFile" -DVCPKG_TARGET_TRIPLET=x64-windows
+Assert-LastExitCode "La configuracion de CMake"
 
 Write-Host "==> Compilando ($Configuration)"
 & $cmakeExe --build $BuildDir --config $Configuration
+Assert-LastExitCode "La compilacion"
 
 $exePath = Join-Path $BuildDir "$Configuration/qbittorrent.exe"
 if (Test-Path $exePath) {

@@ -130,6 +130,81 @@ Test-Case "build.ps1 pasa a CMake la ruta real del toolchain de vcpkg" {
     Assert-True ($result.Calls.Contains($expected)) "No se encontro '$expected'. Llamadas: $($result.Calls)"
 }
 
+Test-Case "build.ps1 se detiene si falla la configuracion de CMake" {
+    $sb = New-Sandbox
+    Set-FakeTool $sb "cmake" -FailWhenArgsContain "-G"
+
+    $result = Invoke-ScriptUnderTest $sb "build.ps1" @("-Configuration", "Release", "-SkipQtDeploy")
+
+    Assert-True ($result.ExitCode -ne 0) "build.ps1 termino con codigo 0 aunque la configuracion fallo"
+    Assert-True ($result.Calls -notmatch "--build") "build.ps1 siguio compilando despues de una configuracion fallida"
+}
+
+Test-Case "build.ps1 falla y no reporta 'Build OK' si la compilacion falla con un .exe viejo presente" {
+    $sb = New-Sandbox
+    Set-FakeTool $sb "cmake" -FailWhenArgsContain "--build"
+    New-StaleFile $sb "build\Release\qbittorrent.exe"
+
+    $result = Invoke-ScriptUnderTest $sb "build.ps1" @("-Configuration", "Release", "-SkipQtDeploy")
+
+    Assert-True ($result.ExitCode -ne 0) "build.ps1 termino con codigo 0 aunque la compilacion fallo"
+    Assert-True ($result.Output -notmatch "Build OK") "build.ps1 reporto 'Build OK' con un ejecutable viejo"
+}
+
+Test-Case "build.ps1 falla si windeployqt falla" {
+    $sb = New-Sandbox
+    Set-FakeTool $sb "cmake"
+    Set-FakeTool $sb "windeployqt" -AlwaysFail
+    New-StaleFile $sb "build\Release\qbittorrent.exe"
+    New-StaleFile $sb "build\Release\platforms\qwindows.dll"
+
+    $result = Invoke-ScriptUnderTest $sb "build.ps1" @("-Configuration", "Release")
+
+    Assert-True ($result.ExitCode -ne 0) "build.ps1 termino con codigo 0 aunque windeployqt fallo"
+    Assert-True ($result.Output -notmatch "Build OK") "build.ps1 reporto 'Build OK' aunque windeployqt fallo"
+}
+
+Test-Case "installer.ps1 falla si build.ps1 falla" {
+    $sb = New-Sandbox
+    Set-FakeTool $sb "cmake" -FailWhenArgsContain "--build"
+    Set-FakeTool $sb "makensis"
+    New-StaleFile $sb "build\Release\qbittorrent.exe"
+    New-StaleFile $sb "dist\windows\qbittorrent.nsi"
+    New-StaleFile $sb "dist\windows\qbittorrent_0.0.0_x64_setup.exe"
+
+    $result = Invoke-ScriptUnderTest $sb "installer.ps1" @("-Configuration", "Release", "-SkipQtDeploy")
+
+    Assert-True ($result.ExitCode -ne 0) "installer.ps1 termino con codigo 0 aunque la compilacion fallo"
+    Assert-True ($result.Calls -notmatch "makensis") "installer.ps1 genero el instalador despues de una compilacion fallida"
+}
+
+Test-Case "installer.ps1 falla si windeployqt falla con un qwindows.dll viejo presente" {
+    $sb = New-Sandbox
+    Set-FakeTool $sb "windeployqt" -AlwaysFail
+    Set-FakeTool $sb "makensis"
+    New-StaleFile $sb "build\Release\qbittorrent.exe"
+    New-StaleFile $sb "build\Release\platforms\qwindows.dll"
+    New-StaleFile $sb "dist\windows\qbittorrent.nsi"
+
+    $result = Invoke-ScriptUnderTest $sb "installer.ps1" @("-Configuration", "Release", "-SkipBuild")
+
+    Assert-True ($result.ExitCode -ne 0) "installer.ps1 termino con codigo 0 aunque windeployqt fallo"
+    Assert-True ($result.Calls -notmatch "makensis") "installer.ps1 genero el instalador aunque windeployqt fallo"
+}
+
+Test-Case "installer.ps1 falla y no reporta un instalador viejo si makensis falla" {
+    $sb = New-Sandbox
+    Set-FakeTool $sb "makensis" -AlwaysFail
+    New-StaleFile $sb "build\Release\qbittorrent.exe"
+    New-StaleFile $sb "dist\windows\qbittorrent.nsi"
+    New-StaleFile $sb "dist\windows\qbittorrent_0.0.0_x64_setup.exe"
+
+    $result = Invoke-ScriptUnderTest $sb "installer.ps1" @("-Configuration", "Release", "-SkipBuild", "-SkipQtDeploy")
+
+    Assert-True ($result.ExitCode -ne 0) "installer.ps1 termino con codigo 0 aunque makensis fallo"
+    Assert-True ($result.Output -notmatch "Installer OK") "installer.ps1 reporto un instalador viejo como resultado"
+}
+
 foreach ($dir in $script:sandboxes) {
     Remove-Item $dir -Recurse -Force -ErrorAction SilentlyContinue
 }
