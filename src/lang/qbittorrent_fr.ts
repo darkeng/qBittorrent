@@ -8902,7 +8902,7 @@ Consultez le journal d&apos;exécution pour les erreurs.</translation>
     </message>
     <message>
         <source>You can get new search engine plugins here: &lt;a href=&quot;https://plugins.qbittorrent.org&quot;&gt;https://plugins.qbittorrent.org&lt;/a&gt;</source>
-        <translation type="vanished">Vous pouvez obtenir de nouveaux greffons de recherche ici : &lt;a href=&quot;https://plugins.qbittorrent.org&quot;&gt;https://plugins.qbittorent.org&lt;/a&gt;</translation>
+        <translation type="vanished">Vous pouvez obtenir de nouveaux greffons de recherche ici : &lt;a href=&quot;https://plugins.qbittorrent.org&quot;&gt;https://plugins.qbittorrent.org&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Install a new one</source>
@@ -10680,7 +10680,7 @@ Ces derniers ont été désactivés.</translation>
     <message>
         <location filename="../gui/search/searchpluginselectdialog.ui" line="95"/>
         <source>You can get new search engine plugins here: &lt;a href=&quot;https://plugins.qbittorrent.org&quot;&gt;https://plugins.qbittorrent.org&lt;/a&gt;</source>
-        <translation type="unfinished">Vous pouvez obtenir de nouveaux greffons de recherche ici : &lt;a href=&quot;https://plugins.qbittorrent.org&quot;&gt;https://plugins.qbittorent.org&lt;/a&gt;</translation>
+        <translation type="unfinished">Vous pouvez obtenir de nouveaux greffons de recherche ici : &lt;a href=&quot;https://plugins.qbittorrent.org&quot;&gt;https://plugins.qbittorrent.org&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../gui/search/searchpluginselectdialog.ui" line="107"/>
