@@ -1,7 +1,13 @@
 find_package(Qt6 REQUIRED COMPONENTS Test)
 
 enable_testing(true)
-add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure)
+
+# multi-config generators (e.g. Visual Studio) require ctest to be told which configuration to test
+get_property(isMultiConfig GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
+if (isMultiConfig)
+    set(ctestConfigArgs -C $<CONFIG>)
+endif()
+add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure ${ctestConfigArgs})
 
 include_directories("../src")
 
